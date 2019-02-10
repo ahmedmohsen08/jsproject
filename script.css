@@ -1,0 +1,113 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.row {
+    /*border: 2px solid red;*/
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.row div {
+    /*border: 2px solid blue;*/
+}
+
+div {
+    box-sizing: border-box;
+    /*min-height: 150px;*/
+
+}
+
+.col {
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.menu{
+    background-color: cadetblue;    
+    /*height: 30px;*/
+}
+
+.menu ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    align-content: space-between;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.menu ul li{
+    padding: 15px;
+    text-align: center;
+    margin: auto;  
+}
+
+.menu ul li a{
+    text-decoration: none;
+    align-content: space-between;
+    justify-content: space-between;
+    color: black;
+    padding: 15px;  
+}
+
+.menu ul li a:hover{
+    color: white;
+}
+
+.optionsBar{
+
+}
