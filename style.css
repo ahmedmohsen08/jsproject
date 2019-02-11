@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: #222;
     color: white;
 }
 
@@ -121,5 +121,9 @@ div {
 }
 
 #optionsBar{
-    margin: auto;
+    margin-top: 0px;
+}
+
+#subOptionsBar{
+    margin-bottom: 5px;
 }
