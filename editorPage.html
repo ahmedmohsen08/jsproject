@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="style.css" rel="stylesheet">
     <script src="jquery-3.3.1.js"></script>
     <script src="script.js"></script>
@@ -25,26 +26,34 @@
     </div>
 
     <div class="row">
-        <div id="imageView" style="width:500px; height:500px; background-color: white; margin: auto;">
-            <table>
-                <tr>
-                    <td>
-                        <img src="">
-                    </td>
-                    <td>
-                        <img src="">
-                    </td>
-                </tr>
+        <div id="imageView">
+            <div class=" tableRow row1">
+                <div class="tableCol col1 col-6">
+                    <img src="">
+                </div>
+                <div class="tableCol col2 col-6">
+                    <img src="">
+                </div>
+            </div>
 
-                <tr>
-                    <td>
-                        <img src="">
-                    </td>
-                    <td>
-                        <img src="">
-                    </td>
-                </tr>
-            </table>
+            <div class="tableRow row2">
+                <div class="tableCol col1 col-6">
+                    <img src="">
+                </div>
+                <div class="tableCol col2 col-6">
+                    <img src="">
+                </div>
+            </div>
+
+            <div id="colBtn">
+                <button class="btn" id="leftBtn"> <i class="fa fa-caret-left"></i></button>
+                <button class="btn" style="border-left:1px solid #0d8bf2" id="rightBtn"><i class="fa fa-caret-right"></i></button>
+            </div>
+
+            <div id="rowBtn">
+                <button class="btn" id="upBtn"> <i class="fa fa-caret-up"></i></button>
+                <button class="btn" style="border-left:1px solid #0d8bf2" id="downBtn"><i class="fa fa-caret-down"></i></button>
+            </div>
         </div>
     </div>
 
@@ -56,10 +65,10 @@
         </div>
 
         <div id="blurBar" class="optionsBar col-12" style="display:none;">
-                <input type="button" value="&#9730" id="blur1">
-                <input type="button" value="&#9730" id="blur2">
-                <input type="button" value="&#9730" id="blur3">
-            </div>
+            <input type="button" value="&#9730" id="blur1">
+            <input type="button" value="&#9730" id="blur2">
+            <input type="button" value="&#9730" id="blur3">
+        </div>
     </div>
 
     <div class="row" id="optionsBar">
