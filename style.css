@@ -175,7 +175,8 @@ img{
 #colBtn1{
     position: absolute;
     top: 90px;
-    left: 223px;
+    /*left: 223px;*/
+    left: 45%;
 }
 
 #colBtn2{
