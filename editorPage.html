@@ -3,8 +3,15 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ'
+        crossorigin='anonymous'>
+
+        
     <link href="style.css" rel="stylesheet">
     <script src="jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
     <script src="script.js"></script>
 </head>
@@ -26,23 +33,24 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" id=
+    'imageContainer'>
         <div id="imageView">
             <div class=" tableRow row1">
                 <div class="tableCol col1 col-6">
-                    <img src="">
+                    <img src="" id="collageImage1">
                 </div>
                 <div class="tableCol col2 col-6">
-                    <img src="">
+                    <img src="" id="collageImage2">
                 </div>
             </div>
 
             <div class="tableRow row2">
                 <div class="tableCol col1 col-6">
-                    <img src="">
+                    <img src="" id="collageImage3">
                 </div>
                 <div class="tableCol col2 col-6">
-                    <img src="">
+                    <img src="" id="collageImage4">
                 </div>
             </div>
 
@@ -59,6 +67,10 @@
             <div id="rowBtn">
                 <button class="btn" id="upBtn"> <i class="fa fa-caret-up"></i></button>
                 <button class="btn" style="border-left:1px solid #0d8bf2" id="downBtn"><i class="fa fa-caret-down"></i></button>
+            </div>
+
+            <div class="output">
+
             </div>
         </div>
     </div>
@@ -77,17 +89,458 @@
         </div>
     </div>
 
-    <div class="row" id="optionsBar">
-        <div id="singleEditor" class="optionsBar col-12">
-            <input type="button" value="&#9728" id="framesBtn">
-            <input type="button" value="&#9728" id="blurBtn">
-            <input type="button" value="&#9728" id="backgroundBtn">
-            <input type="button" value="&#9728" id="ratioBtn">
-            <input type="button" value="&#9728" id="textBtn">
-            <input type="button" value="&#9728" id="filterBtn">
+    <div class="row">
+        <div class="multiredbar">
+            <button class=" filter designbtn">
+                <span class="styleIcone">&#9882;</span>
+                <p class="featuresfont">Filter<p>
+            </button>
+
+            <button class="swap designbtn">
+                <span class="styleIcone">&#10064;</span>
+                <p class="featuresfont">Swap<p>
+            </button>
+
+            <button class="delete1 designbtn">
+                <span class="styleIcone material-icons">&#xe872;</span>
+                <p class="featuresfont">Delete<p>
+            </button>
+
+
+            <button class="rotateleft designbtn">
+                <span class="styleIcone"> &#8634;</span>
+                <p class="featuresfont">Left<p>
+            </button>
+
+            <button class="rotateright designbtn">
+                <span class="styleIcone">&#8635;</span>
+                <p class="featuresfont">Right<p>
+            </button>
+
+            <button class="fill designbtn">
+                <span class="styleIcone">&#9974;</span>
+                <pre><p class="featuresfont">Fill</p></pre>
+                <!--b reset elsora lw 3mlna feha ay positions-->
+            </button>
+
+            <button class="reverse designbtn">
+                <span class="styleIcone">&#8633;</span>
+                <p class="featuresfont">Reverse<p>
+                        <!--horizontal-->
+            </button>
+
+            <button class="vertical designbtn">
+                <span class="styleIcone"> &#9709;</span>
+                <p class="featuresfont">Vertical<p>
+            </button>
+
+            <button class="zoomin designbtn">
+                <span class="styleIcone material-icons">&#xe8ff;</span>
+                <p class="featuresfont">Zoom In<p>
+            </button>
+
+            <button class="zoomout designbtn">
+                <span class="styleIcone material-icons">&#xe900;</span>
+                <p class="featuresfont">Zoom Out<p>
+            </button>
+
+            <button class="left designbtn">
+                <span class="styleIcone">&#8672;</span>
+                <p class="featuresfont">Left<p>
+            </button>
+
+            <button class="right designbtn">
+                <span class="styleIcone">&#8674;</span>
+                <p class="featuresfont">Right<p>
+            </button>
+
+            <button class="up designbtn">
+                <span class="styleIcone"> &#8673;</span>
+                <p class="featuresfont">Up<p>
+            </button>
+
+            <button class="down designbtn">
+                <span class="styleIcone">&#8675;</span>
+                <p class="featuresfont">Down<p>
+            </button>
         </div>
     </div>
 
+    <div class="row">
+        <div class="singleBar">
+
+            <button class=" filter designbtn">
+                <span class="styleIcone">&#9882;</span>
+                <p class="featuresfont">Filter<p>
+            </button>
+
+            <button class="rotateleft designbtn">
+                <span class="styleIcone"> &#8634;</span>
+                <p class="featuresfont">Left<p>
+            </button>
+
+            <button class="rotateright designbtn">
+                <span class="styleIcone">&#8635;</span>
+                <p class="featuresfont">Right<p>
+            </button>
+
+            <button class="fill designbtn">
+                <span class="styleIcone">&#9974;</span>
+                <pre><p class="featuresfont">Fill</p></pre>
+                <!--b reset elsora lw 3mlna feha ay positions-->
+            </button>
+
+            <button class="reverse designbtn">
+                <span class="styleIcone">&#8633;</span>
+                <p class="featuresfont">Reverse<p>
+                        <!--horizontal-->
+            </button>
+
+            <button class="vertical designbtn">
+                <span class="styleIcone"> &#9709;</span>
+                <p class="featuresfont">Vertical<p>
+            </button>
+
+            <button class="zoomin designbtn">
+                <span class="styleIcone material-icons">&#xe8ff;</span>
+                <p class="featuresfont">Zoom In<p>
+            </button>
+
+            <button class="zoomout designbtn">
+                <span class="styleIcone material-icons">&#xe900;</span>
+                <p class="featuresfont">Zoom Out<p>
+            </button>
+
+            <button class="left designbtn">
+                <span class="styleIcone">&#8672;</span>
+                <p class="featuresfont">Left<p>
+            </button>
+
+            <button class="right designbtn">
+                <span class="styleIcone">&#8674;</span>
+                <p class="featuresfont">Right<p>
+            </button>
+
+            <button class="up designbtn">
+                <span class="styleIcone"> &#8673;</span>
+                <p class="featuresfont">Up<p>
+            </button>
+
+            <button class="down designbtn">
+                <span class="styleIcone">&#8675;</span>
+                <p class="featuresfont">Down<p>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="AllFilters">
+
+
+            <img id="none" src="filters/none.PNG">
+            <img id="brightness" src="filters/brightness.PNG">
+            <img id="grayscale" src="filters/grayscale.PNG">
+            <img id="hue-rotate" src="filters/hue-rotate.PNG">
+            <img id="opacity" src="filters/opacity.PNG">
+            <img id="contrast" src="filters/contrast.PNG">
+            <img id="blur" src="filters/blur.PNG">
+            <img id="sepia" src="filters/sepia.PNG">
+            <img id="invert" src="filters/invert.PNG">
+            <img id="contrast-brightness" src="filters/contrast-brightness.PNG">
+            <img id="drop-shadow" src="filters/drop-shadow.PNG">
+            <img id="saturate" src="./filters/saturate.PNG">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="multiBlack">
+            <button class=" layout designbtn">
+                <span class="styleIcone fa">&#xf247;</span>
+                <p class="featuresfont">Layout<p>
+            </button>
+
+            <button class="background designbtn">
+                <span class="styleIcone fas">&#xf576;</span>
+                <p class="featuresfont">Background<p>
+            </button>
+
+            <button class="blurr designbtn">
+                <span class="styleIcone fas">&#xf043;</span>
+                <p class="featuresfont">Blur<p>
+            </button>
+
+
+            <button class="ratio designbtn">
+                <span class="styleIcone fas">&#xf5cb;</span>
+                <p class="featuresfont">Ratio<p>
+            </button>
+
+            <button class="space designbtn">
+                <span class="styleIcone fas">&#xf565;</span>
+                <p class="featuresfont">Space<p>
+            </button>
+
+
+            <button class="text designbtn">
+                <span class="styleIcone fa">&#xf035;</span>
+                <p class="featuresfont">Text<p>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="ratioBar">
+            <button id="changeRatioBtn1_1">
+                <span>1:1</span>
+            </button>
+    
+            <button id="changeRatioBtn2_1">
+                <span>2:1</span>
+            </button>
+    
+            <button id="changeRatioBtn1_2">
+                <span>1:2</span>
+            </button>
+    
+            <button id="changeRatioBtn3_2">
+                <span>3:2</span>
+            </button>
+    
+            <button id="changeRatioBtn2_3">
+                <span>2:3</span>
+            </button>
+    
+            <button id="changeRatioBtn4_3">
+                <span>4:3</span>
+            </button>
+    
+            <button id="changeRatioBtn3_4">
+                <span>3:4</span>
+            </button>
+    
+            <button id="changeRatioBtn4_5">
+                <span>4:5</span>
+            </button>
+    
+            <button id="changeRatioBtn5_7">
+                <span>5:7</span>
+            </button>
+    
+            <button id="changeRatioBtn16_9">
+                <span>16:9</span>
+            </button>
+    
+            <button id="changeRatioBtn9_16">
+                <span>9:16</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="backgroundColorBar">
+            <button class="AliceBlue" style="background-color:AliceBlue">
+            </button>
+
+            <button class="Aqua" style="background-color:Aqua">
+            </button>
+
+            <button class="Aquamarine" style="background-color:Aquamarine">
+            </button>
+
+            <button class="DarkCyan" style="background-color:DarkCyan">
+            </button>
+
+            <button class="DarkTurquoise" style="background-color:DarkTurquoise">
+            </button>
+
+            <button class="LightSkyBlue" style="background-color:LightSkyBlue">
+            </button>
+
+            <button class="DodgerBlue" style="background-color:DodgerBlue">
+            </button>
+
+
+
+            <button class="Brown" style="background-color:Brown">
+            </button>
+
+
+            <button class="Maroon" style="background-color:Maroon">
+            </button>
+
+            <button class="Red" style="background-color:Red">
+            </button>
+
+            <button class="OrangeRed" style="background-color:OrangeRed">
+            </button>
+
+
+
+            <button class="Orange" style="background-color:Orange">
+            </button>
+
+
+            <button class="Indigo" style="background-color:Indigo">
+            </button>
+
+
+
+            <button class="DarkOrchid" style="background-color:DarkOrchid">
+            </button>
+
+
+            <button class="DarkViolet" style="background-color:DarkViolet">
+            </button>
+            <button class="Blue" style="background-color:Blue">
+            </button>
+
+
+            <button class="ForestGreen" style="background-color:ForestGreen">
+            </button>
+
+
+
+            <button class="LimeGreen" style="background-color:LimeGreen">
+            </button>
+
+
+            <button class="PaleGreen" style="background-color:PaleGreen">
+            </button>
+            <button class="SpringGreen" style="background-color:SpringGreen">
+            </button>
+
+
+            <button class="Fuchsia" style="background-color:Fuchsia">
+            </button>
+
+            <button class="HotPink" style="background-color:HotPink">
+            </button>
+
+            <button class="LightPink" style="background-color:LightPink">
+            </button>
+
+
+
+            <button class="SaddleBrown" style="background-color:SaddleBrown">
+            </button>
+
+            <button class="Sienna" style="background-color:Sienna">
+            </button>
+
+            <button class="Peru" style="background-color:Peru">
+            </button>
+
+            <button class="DimGray" style="background-color:DimGray">
+            </button>
+
+
+            <button class="Wheat" style="background-color:Wheat">
+            </button>
+
+
+            <button class="DimGray" style="background-color:DimGray">
+            </button>
+            <button class="Black" style="background-color:Black">
+            </button>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="allRange spaceRange">
+            <label style="font-size: 30px ; font-style: italic">Size</label>
+            <input type="range" min="2" max="30" value="0" class="slider" id="sizeRange">
+            <br>
+            <label style="font-size: 30px ; font-style: italic">Corner</label>
+            <input type="range" min="0" max="100" value="0" class="slider" id="cornerRange">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="allRange MainblurRange">
+            <label style="font-size: 30px ; font-style: italic">Blur</label>
+            <input type="range" min="0" max="100" value="0" class="slider" id="mainblur">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="allImageFilterRange">
+
+            <input type="range" class="slider" id="imageFilterrange">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="textbar">
+            <textarea id="inputtext" style="width: 300px">
+                </textarea>
+
+            <div class="TextOptionBar">
+
+                <select class="fontcolors">
+                    <option disabled selected>Font Colors</option>
+                    <option style="color:red">red</option>
+                    <option style="color:yellow">yellow</option>
+                    <option style="color:blue">blue</option>
+                    <option style="color: green">green</option>
+                    <option style="color: yellow">yellow</option>
+                    <option style="color:aqua">aqua</option>
+                    <option style="color:brown">brown</option>
+                    <option style="color:cadetblue">cadetblue</option>
+                    <option style="color: crimson">crimson</option>
+                    <option style="color:darkmagenta">darkmagenta</option>
+
+                </select>
+
+                <input type="button" class="fa" value="&#xf036;" id="alignleft">
+                <input type="button" class="fa" value="&#xf037;" id="aligncenter">
+                <input type="button" class="fa" value="&#xf038;" id="alignright">
+
+
+                <select class="fontstyle">
+                    <option disabled selected style="color: cadetblue">Font Style</option>
+                    <option style="font-style: italic">italic</option>
+                    <option style="font-style: oblique">oblique</option>
+                    <option style="font-style: normal">normal</option>
+                </select>
+
+                <select class="fontfamily">
+                    <option disabled selected>Font Family</option>
+                    <option style=" font-family: fantasy">fantasy</option>
+                    <option style=" font-family:cursive">cursive</option>
+                    <option style=" font-family: monospace">monospace</option>
+                    <option style=" font-family: serif">serif</option>
+                </select>
+
+                <label class="fa">&#xf031;</label>
+
+                <input type="text" placeholder="f-size" id="fontsize" style="width:40px;">
+
+                <input type="button" class="fa" value="&#xf032;" id="textbold">
+
+                <input type="button" class="fa" value="&#xf14a;" id="textdone">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+       
+    </div>
+
+
+    <div class="row" style="display:none">
+        <div class="scraper"></div>
+    </div>
+
+    
     <button id="changeRatioBtn1_1">1:1</button>
     <button id="changeRatioBtn2_1">2:1</button>
     <button id="changeRatioBtn1_2">1:2</button>
@@ -99,7 +552,7 @@
     <button id="changeRatioBtn5_7">5:7</button>
     <button id="changeRatioBtn16_9">16:9</button>
     <button id="changeRatioBtn9_16">9:16</button><br>
-    <input id="btn-Preview-Image" type="button" value="Preview"/>
+    <input id="btn-Preview-Image" type="button" value="Preview" />
     <a id="btn-Convert-Html2Image" href="#">Download</a>
     <div id="previewImage">
     </div>

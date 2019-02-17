@@ -152,7 +152,7 @@ div {
 }
 
 .tableCol{
-    
+    overflow: hidden;
 }
 
 img{
@@ -190,4 +190,270 @@ img{
     display: block;
     top: 230px;
     left: 90px;
+}
+
+
+
+/*---------------------------------------------------*/
+
+
+.designbtn{
+    background-color:firebrick;
+    border-style: hidden;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px white
+}
+
+.featuresfont{
+    color: white;
+    font-size: 20px
+}
+.styleIcone {
+  font-size:25px;
+    color: white;
+}
+button{
+    width: 90px;
+    height: 100%;
+    margin:auto;
+}
+.multiredbar,.singleBar{
+    position: absolute;
+    top:700px;
+    height: 110px;
+    width: 100%;
+    background-color: firebrick;
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+  
+}
+
+
+.singleBar{
+  align-content: center;
+    
+}
+
+.AllFilters{
+    position: absolute;
+    top:595px;
+    display: none;
+    flex-direction: row;
+    box-sizing: border-box;
+    margin: auto;
+    height: 110px;
+    width: 100%;
+    
+
+}
+#none,#brightness,#grayscale,#blur,#hue-rotate,#opacity,#contrast,#sepia,#invert,#contrast-brightness,#drop-shadow,#saturate{
+width: 75px;
+   /* margin: 10px;*/
+    flex-grow: 1;
+}
+
+#none,#brightness,#grayscale,#blur,#hue-rotate,#opacity,#contrast,#sepia,#invert,#contrast-brightness,#drop-shadow,#saturate:hover{
+cursor: pointer;
+}
+
+
+
+
+.multiBlack{
+    
+     position: absolute;
+    top:700px;
+    height: 110px;
+    width: 100%;
+    background-color: #008080 ;
+   /* border: 2px solid red;*/
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+     margin: 10px auto;
+
+}
+.multiBlack .designbtn{
+        background-color:#008080!important;
+        box-shadow: 3px 3px 2px white;
+
+
+}
+.multiBlack .featuresfont{
+color:white;
+}
+.multiBlack .styleIcone {
+    color:white !important;
+}
+.multiBlack Button{
+    
+    width: 110px;
+}
+.ratioBar{
+    position: absolute;
+    background-color: #E9967A;
+    width: 100%;
+    top:595px;
+    height: 100px;
+    text-align: center;
+    align-content: space-between;
+    border-radius: 6px;
+    margin: 10px auto;
+  /*  display:none;*/
+
+    
+    
+    
+    
+    
+}
+.ratioBar Button{
+        font-weight: bold;
+        font-size:20px ;
+        width: 90px;   
+       text-align: center;
+        background-color: #E9967A;
+       color: white;
+        box-shadow: 3px 3px 2px white;
+    border-radius: 5px;
+
+    
+
+}
+.backgroundColorBar {
+   /* display: none;*/
+    position: absolute;
+    top:595px;
+background-color:azure;
+    height:110px;
+    width: 100%;
+    
+}
+.backgroundColorBar Button{
+    width: 45px;
+}
+.allRange{
+    position: absolute;
+    width: 100%;
+    top:645px;
+    text-align: center;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 25px;
+  background: #d3d3d3;
+  opacity: 0.5;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 30px;
+  background: Indigo;
+  cursor: pointer;
+}
+.layout,.background,.space,.blurr,.ratio,.text:hover{
+    cursor: pointer;
+}
+.allImageFilterRange{
+    position: absolute;
+    width: 100%;
+    top:560px;
+    text-align: center;
+    z-index: 9999;
+}
+
+.reverseimg{
+    transform: scale(-1,-1);
+}
+#test{
+    position:relative;
+}
+.imgborder{
+    position: absolute;
+    height: 500px;
+    width: 700px;
+    border: 2px solid red;
+    
+}
+
+
+.textbar{
+    position: absolute;
+    top:300px;
+    left: 600px;
+    border: 2px solid antiquewhite;
+    text-align: center;
+    box-shadow: 3px 3px 3px grey;
+    background-color: darksalmon;
+    z-index: 999999;
+        
+}
+
+.output{
+    position: absolute;
+ /*   border: 2px solid red;*/
+    box-sizing: border-box;
+    top:197px;
+    left:250px;
+    z-index: 99999;
+    text-align: center;
+    
+}
+
+.scraper{
+position: absolute;
+ border: 2px solid black;
+ top:50px;
+ left: 500px;
+ height: 500px;
+ width:40%;
+    
+}
+#inputScraperImg1,#inputScraperImg2,#inputScraperImg3,#inputScraperImg4{
+ position: absolute;
+                    
+}
+
+#inputScraperImg1:hover
+{
+    border:2px solid red;
+    cursor: pointer;
+}
+#inputScraperImg2:hover
+{
+    border:2px solid red;
+    cursor: pointer;
+}#inputScraperImg3:hover
+{
+    border:2px solid red;
+    cursor: pointer;
+}#inputScraperImg4:hover
+{
+    border:2px solid red;
+    cursor: pointer;
+}
+
+.filter,.rotateleft,.rotateright,.fill,.reverse,.vertical,.zoomin,.zoomout,.left,.right,.up,.down,.delete1,.swap:hover{
+    cursor: pointer;
+}
+
+
+
+#collageImage1{
+    top:50px;
 }
