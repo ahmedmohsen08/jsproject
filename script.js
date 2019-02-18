@@ -13,8 +13,8 @@ var fontsize = "25";
 var textalign = "left";
 var checkbold = false;
 var currentMainBlur = "#imageView";//holds the current imageView
-var pressed=false;
-var currentImageSrc="";
+var pressed = false;
+var currentImageSrc = "";
 
 
 $(function () {
@@ -57,30 +57,18 @@ $(function () {
         $(currentTab).slideToggle();
     });
 
-    var loadedImages = ['./images/1.jpg', './images/2.jpg', './images/3.jpg', './images/4.jpg', './images/5.jpg', './images/6.jpg', './images/7.jpg', './images/8.jpg'];
+    var loadedImages = ['./images/1.jpg', './images/2.jpg', './images/3.jpg', './images/4.jpg'];
     var images = $('#imageView img');
     for (var i = 0; i < images.length; i++) {
         images[i].src = loadedImages[i];
     }
+    $('#imageView img').draggable();
 
-    // $('#colBtn1 #leftBtn').on('click', function (e) {
-    //     var col = $('.col1')[0];
-    //     var width = getComputedStyle(col).width;
-    //     if (parseInt(width) > 150) {
-    //         width = (parseInt(width) - 10) + 'px';
-    //         col.style.width = width;
-
-    //         var btn = $('#colBtn1')[0];
-    //         var left = getComputedStyle(btn).left;
-    //         left = (parseInt(left) - 10) + 'px';
-    //         btn.style.left = left;
-
-    //         var col = $('.col2')[0];
-    //         var width = getComputedStyle(col).width;
-    //         width = (parseInt(width) + 10) + 'px';
-    //         col.style.width = width;
-    //     }
-    // });
+    var images = $('#imageView3 img');
+    for (var i = 0; i < 3; i++) {
+        images[i].src = loadedImages[i];
+    }
+    $('#imageView3 img').draggable();
 
     $('#colBtn1 #leftBtn').on('click', function (e) {
         var col = $('.col1')[0];
@@ -139,6 +127,52 @@ $(function () {
         }
     });
 
+    $('#imageView3 #colBtn1 #leftBtn').on('click',function(){
+        var leftCol=$('#imageView3 .row2 .col1')[0];
+        var rightCol=$('#imageView3 .row2 .col2')[0];
+        var btn=$('#imageView3 #colBtn1')[0];
+        btnMoveLeft(rightCol,leftCol,btn);
+    })
+
+    $('#imageView3 #colBtn1 #rightBtn').on('click',function(){
+        var leftCol=$('#imageView3 .row2 .col1')[0];
+        var rightCol=$('#imageView3 .row2 .col2')[0];
+        var btn=$('#imageView3 #colBtn1')[0];
+        btnMoveRight(rightCol,leftCol,btn);
+    })
+
+    function btnMoveLeft(rightCol,leftCol,btn){
+        var width = getComputedStyle(leftCol).width;
+        if (parseInt(width) > 150) {
+            width = (parseInt(width) - 10) + 'px';
+            leftCol.style.width = width;
+
+            var left = getComputedStyle(btn).left;
+            left = (parseInt(left) - 10) + 'px';
+            btn.style.left = left;
+
+            var width = getComputedStyle(rightCol).width;
+            width = (parseInt(width) + 10) + 'px';
+            rightCol.style.width = width;
+        }
+    }
+
+    function btnMoveRight(rightCol,leftCol,btn){
+        var width = getComputedStyle(leftCol).width;
+        if (parseInt(width) < parseInt(getComputedStyle($('#imageView')[0]).width) - 150) {
+            width = (parseInt(width) + 10) + 'px';
+            leftCol.style.width = width;
+
+            var left = getComputedStyle(btn).left;
+            left = (parseInt(left) + 10) + 'px';
+            btn.style.left = left;
+
+            var width = getComputedStyle(rightCol).width;
+            width = (parseInt(width) - 10) + 'px';
+            rightCol.style.width = width;
+        }
+    }
+
     $('#colBtn2 #rightBtn').on('click', function (e) {
         var col = $('.col1')[1];
         var width = getComputedStyle(col).width;
@@ -196,7 +230,51 @@ $(function () {
         }
     });
 
+    $('#imageView3 #rowBtn1 #upBtn').on('click',function(){
+        var topRow=$('#imageView3 .row1')[0];
+        var bottomRow=$('#imageView3 .row2')[0];
+        var btn=$('#imageView3 #rowBtn1')[0];
+        btnMoveUp(topRow,bottomRow,btn);
+    })
 
+    $('#imageView3 #rowBtn1 #downBtn').on('click',function(){
+        var topRow=$('#imageView3 .row1')[0];
+        var bottomRow=$('#imageView3 .row2')[0];
+        var btn=$('#imageView3 #rowBtn1')[0];
+        btnMoveDown(topRow,bottomRow,btn);
+    })
+
+    function btnMoveUp(topRow,bottomRow,btn){
+        var height = getComputedStyle(topRow).height;
+        if (parseInt(height) > 150) {
+            height = (parseInt(height) - 10) + 'px';
+            topRow.style.height = height;
+
+            var top = getComputedStyle(btn).top;
+            top = (parseInt(top) - 10) + 'px';
+            btn.style.top = top;
+
+            var height = getComputedStyle(bottomRow).height;
+            height = (parseInt(height) + 10) + 'px';
+            bottomRow.style.height = height;
+        }
+    }
+
+    function btnMoveDown(topRow,bottomRow,btn){
+        var height = getComputedStyle(topRow).height;
+        if (parseInt(height) < parseInt(getComputedStyle($('#imageView')[0]).height) - 150) {
+            height = (parseInt(height) + 10) + 'px';
+            topRow.style.height = height;
+
+            var top = getComputedStyle(btn).top;
+            top = (parseInt(top) + 10) + 'px';
+            btn.style.top = top;
+
+            var height = getComputedStyle(bottomRow).height;
+            height = (parseInt(height) - 10) + 'px';
+            bottomRow.style.height = height;
+        }
+    }
 
 
     var getCanvas;
@@ -590,21 +668,65 @@ $(function () {
     //move right and left
 
     $(".left").on("click", function () {
-        var img = getComputedStyle($(currentImg)).left
-
-        $(currentImg).css("left", leftimg + "px");
-
+        var imgleft = $(currentImg).css("left");
+        if (imgleft == 'auto') {
+            console.log('true');
+            imgleft = 0;
+        }
+        else
+        {
+            imgleft=parseInt(imgleft);
+        }
+        console.log(imgleft);
+        imgleft -= 15;
+        $(currentImg).css("left", imgleft + 'px');
+        console.log($(currentImg).css("left"));
     })
 
     $(".right").on("click", function () {
-        var rightimg = parseInt($(currentImg).css("right"));
-        var leftimg = parseInt($(currentImg).css("left"));
-        var rightborder = parseInt($(".imgborder").css("right"));
-        if (rightimg < rightborder) {
-            leftimg += 15;
+        var imgleft = $(currentImg).css("left");
+        if (imgleft == 'auto') {
+            console.log('true');
+            imgleft = 0;
         }
-        var newpos = "" + leftimg + "px"
-        $(currentImg).css("left", newpos);
+        else
+        {
+            imgleft=parseInt(imgleft);
+        }
+        console.log(imgleft);
+        imgleft += 15;
+        $(currentImg).css("left", imgleft + 'px');
+        console.log($(currentImg).css("left"));
+
+    })
+
+    $(".up").on("click", function () {
+        var imgtop = $(currentImg).css("top");
+        if (imgtop == 'auto') {
+            imgtop = 0;
+        }
+        else
+        {
+            imgtop=parseInt(imgtop);
+        }
+        imgtop -= 15;
+        $(currentImg).css("top", imgtop + 'px');
+        console.log($(currentImg).css("top"));
+
+    })
+
+    $(".down").on("click", function () {
+        var imgtop = $(currentImg).css("top");
+        if (imgtop == 'auto') {
+            imgtop = 0;
+        }
+        else
+        {
+            imgtop=parseInt(imgtop);
+        }
+        imgtop += 15;
+        $(currentImg).css("top", imgtop + 'px');
+        console.log($(currentImg).css("top"));
 
     })
 
@@ -626,10 +748,10 @@ $(function () {
     /////////////////////////////////////////////////////////////////////////////////////
 
     //swap 2 image
-    
+
     $(".swap").on("click", function () {
-        pressed=true;
-        currentImageSrc=$(currentImg).attr("src");
+        pressed = true;
+        currentImageSrc = $(currentImg).attr("src");
     })
 
     //////////////////////////////////////////////////////////////////////////////////////
@@ -921,60 +1043,27 @@ $(function () {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    var images = ["1.jpg", "2.jpg", "3.jpg", "img.jpg"];
+    var images = ['./images/1.jpg', './images/2.jpg', './images/3.jpg', './images/4.jpg', './images/5.jpg', './images/6.jpg', './images/7.jpg', './images/8.jpg'];
     var img = document.createElement("img");
-
+    var left=1;
+    var top=50;
     for (var i = 0; i < images.length; i++) {
 
-        document.querySelector(".scraper").insertAdjacentHTML('beforeend', "<img id=" + "inputScraperImg" + (i + 1) + " src=" + images[i] + ">");
+        document.querySelector("#scraper").insertAdjacentHTML('beforeend', "<img id=" + "inputScraperImg" + (i + 1) + " src=" + images[i] + ">");
+        $("#inputScraperImg" + (i + 1)).css("position","absolute");
+        $("#inputScraperImg" + (i + 1)).draggable();
+        $("#inputScraperImg" + (i + 1)).css("border-radius",13+"px "+80+"px");
+        insertScraperImg($("#inputScraperImg" + (i + 1)),left+=12,top,220,180);
 
     }
 
-    var angle = 10;
-    var flag = -1;
-    var rotate = "rotate(" + flag * angle + "deg)";
-    switch (images.length) {
-        case 4:
-            //insertScraperImg(element,angle,flag,left,top,width,height)
-            insertScraperImg($("#inputScraperImg1"), angle, flag, 34, 22, 250, 200)
-            insertScraperImg($("#inputScraperImg2"), angle, flag, 35, 250, 250, 200)
-            insertScraperImg($("#inputScraperImg3"), angle, flag, 340, 270, 250, 200)
-            insertScraperImg($("#inputScraperImg4"), angle, flag, 320, 30, 250, 200)
-
-            break;
-
-
-        case 3:
-            //insertScraperImg(element,angle,flag,left,top,width,height) 
-            insertScraperImg($("#inputScraperImg1"), angle, flag, 40, 28, 280, 200)
-            insertScraperImg($("#inputScraperImg2"), angle, flag, 35, 250, 280, 200)
-            insertScraperImg($("#inputScraperImg3"), angle, -1 * flag, 360, 130, 280, 200)
-
-            break;
-
-        case 2:
-            //insertScraperImg(element,angle,flag,left,top,width,height)             
-            insertScraperImg($("#inputScraperImg1"), angle, flag, 25, 40, 330, 210)
-            insertScraperImg($("#inputScraperImg2"), angle, flag, 320, 230, 330, 210)
-
-            break;
-
-
-        case 1:
-            //insertScraperImg(element,angle,flag,left,top,width,height)             
-            insertScraperImg($("#inputScraperImg1"), angle, flag, 130, 95, 400, 300)
-            break;
-
-    }
-
-    $('img').on('click',function(e){
-        if(pressed==true)
-        {
-            $(currentImg).attr("src",$(e.currentTarget).attr("src"));
-            $(e.currentTarget).attr('src',currentImageSrc);
-            pressed=false;
+    $('#imageContainer img').on('click', function (e) {
+        if (pressed == true) {
+            $(currentImg).attr("src", $(e.currentTarget).attr("src"));
+            $(e.currentTarget).attr('src', currentImageSrc);
+            pressed = false;
         }
-        currentImg=e.currentTarget;
+        currentImg = e.currentTarget;
         showRedBar(e);
         e.stopPropagation();
     })
@@ -992,16 +1081,14 @@ $(function () {
 });
 
 
-function insertScraperImg(element, angle, flag, left, top, width, height) {
-    var rotate = "rotate(" + flag * angle + "deg)";
-
+function insertScraperImg(element, left, top, width, height) {
     element.css("width", width);
     element.css("height", height);
     element.css("left", left);
     element.css("top", top);
-    element.css("transform", rotate);
 
 }
+
 function Min0Max200() {
 
     $("#imageFilterrange").attr("value", 0);
@@ -1041,6 +1128,9 @@ function initialLoad() {
     $(".MainblurRange").hide();
     $(".allImageFilterRange").hide();
     $(".textbar").hide();
+    $('#imageView').hide();
+    $('#scraper').hide();
+    $('#imageView3').show();
 }
 function ShowFilter() {
 

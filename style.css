@@ -84,7 +84,7 @@ div {
 .btn {
     background-color: #2196F3;
     color: white;
-    padding: 10px;
+    padding: 8px;
     font-size: 16px;
     border: none;
     outline: none;
@@ -143,7 +143,7 @@ div {
     margin-bottom: 5px;
 }
 
-.tableRow{
+.tableRow4{
     width: 100%;
     max-width: 100%;
     display: flex;
@@ -159,11 +159,11 @@ img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    /*display: block;*/
     border: solid 1px black;
 }
 
-#imageView{
+#imageView,#scraper,#imageView3{
     position: relative;
     width:500px; 
     height:500px; 
@@ -172,20 +172,20 @@ img{
     overflow: hidden;
 }
 
-#colBtn1{
+#imageView #colBtn1{
     position: absolute;
     top: 90px;
     /*left: 223px;*/
     left: 45%;
 }
 
-#colBtn2{
+#imageView #colBtn2{
     position: absolute;
     top: 340px;
     left: 223px;
 }
 
-#rowBtn{
+#imageView #rowBtn{
     position: absolute;
     display: block;
     top: 230px;
@@ -193,7 +193,17 @@ img{
 }
 
 
+#imageView3 #colBtn1{
+    position: absolute;
+    top: 370px;
+    left:225px;
+}
 
+#imageView3 #rowBtn1{
+    position: absolute;
+    top: 228px;
+    left: 150px;
+}
 /*---------------------------------------------------*/
 
 
@@ -212,14 +222,14 @@ img{
   font-size:25px;
     color: white;
 }
-button{
+button:not(.btn){
     width: 90px;
     height: 100%;
     margin:auto;
 }
 .multiredbar,.singleBar{
     position: absolute;
-    top:700px;
+    /*top:700px;*/
     height: 110px;
     width: 100%;
     background-color: firebrick;
@@ -243,7 +253,7 @@ button{
 
 .AllFilters{
     position: absolute;
-    top:595px;
+    /*top:595px;*/
     display: none;
     flex-direction: row;
     box-sizing: border-box;
@@ -429,20 +439,7 @@ position: absolute;
                     
 }
 
-#inputScraperImg1:hover
-{
-    border:2px solid red;
-    cursor: pointer;
-}
-#inputScraperImg2:hover
-{
-    border:2px solid red;
-    cursor: pointer;
-}#inputScraperImg3:hover
-{
-    border:2px solid red;
-    cursor: pointer;
-}#inputScraperImg4:hover
+#imageContainer img:hover
 {
     border:2px solid red;
     cursor: pointer;
@@ -450,10 +447,4 @@ position: absolute;
 
 .filter,.rotateleft,.rotateright,.fill,.reverse,.vertical,.zoomin,.zoomout,.left,.right,.up,.down,.delete1,.swap:hover{
     cursor: pointer;
-}
-
-
-
-#collageImage1{
-    top:50px;
 }

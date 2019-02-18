@@ -7,11 +7,11 @@
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ'
         crossorigin='anonymous'>
 
-        
+
     <link href="style.css" rel="stylesheet">
     <script src="jquery-3.3.1.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
     <script src="script.js"></script>
 </head>
@@ -33,10 +33,9 @@
         </div>
     </div>
 
-    <div class="row" id=
-    'imageContainer'>
+    <div class="row" id='imageContainer'>
         <div id="imageView">
-            <div class=" tableRow row1">
+            <div class=" tableRow4 row1">
                 <div class="tableCol col1 col-6">
                     <img src="" id="collageImage1">
                 </div>
@@ -45,7 +44,7 @@
                 </div>
             </div>
 
-            <div class="tableRow row2">
+            <div class="tableRow4 row2">
                 <div class="tableCol col1 col-6">
                     <img src="" id="collageImage3">
                 </div>
@@ -73,19 +72,35 @@
 
             </div>
         </div>
-    </div>
 
-    <div class="row" id="subOptionsBar">
-        <div id="framesBar" class="optionsBar col-12" style="display:none;">
-            <input type="button" value="&#9729" id="frame1">
-            <input type="button" value="&#9729" id="frame2">
-            <input type="button" value="&#9729" id="frame3">
+        <div id="imageView3">
+            <div class="tableRow4 row1">
+                <div class="tableCol col1 col-12">
+                    <img src="">
+                </div>
+            </div>
+            <div class="tableRow4 row2">
+                <div class="tableCol col1 col-6">
+                    <img src="">
+                </div>
+                <div class="tableCol col2 col-6">
+                    <img src="">
+                </div>
+            </div>
+
+            <div id="colBtn1">
+                <button class="btn" id="leftBtn"> <i class="fa fa-caret-left"></i></button>
+                <button class="btn" style="border-left:1px solid #0d8bf2" id="rightBtn"><i class="fa fa-caret-right"></i></button>
+            </div>
+            <div id="rowBtn1">
+                <button class="btn" id="upBtn"> <i class="fa fa-caret-up"></i></button>
+                <button class="btn" style="border-left:1px solid #0d8bf2" id="downBtn"><i class="fa fa-caret-down"></i></button>
+            </div>
         </div>
 
-        <div id="blurBar" class="optionsBar col-12" style="display:none;">
-            <input type="button" value="&#9730" id="blur1">
-            <input type="button" value="&#9730" id="blur2">
-            <input type="button" value="&#9730" id="blur3">
+
+        <div id="scraper" style="display:none;border:2px solid red">
+
         </div>
     </div>
 
@@ -295,43 +310,43 @@
             <button id="changeRatioBtn1_1">
                 <span>1:1</span>
             </button>
-    
+
             <button id="changeRatioBtn2_1">
                 <span>2:1</span>
             </button>
-    
+
             <button id="changeRatioBtn1_2">
                 <span>1:2</span>
             </button>
-    
+
             <button id="changeRatioBtn3_2">
                 <span>3:2</span>
             </button>
-    
+
             <button id="changeRatioBtn2_3">
                 <span>2:3</span>
             </button>
-    
+
             <button id="changeRatioBtn4_3">
                 <span>4:3</span>
             </button>
-    
+
             <button id="changeRatioBtn3_4">
                 <span>3:4</span>
             </button>
-    
+
             <button id="changeRatioBtn4_5">
                 <span>4:5</span>
             </button>
-    
+
             <button id="changeRatioBtn5_7">
                 <span>5:7</span>
             </button>
-    
+
             <button id="changeRatioBtn16_9">
                 <span>16:9</span>
             </button>
-    
+
             <button id="changeRatioBtn9_16">
                 <span>9:16</span>
             </button>
@@ -531,27 +546,6 @@
         </div>
     </div>
 
-    <div class="row">
-       
-    </div>
-
-
-    <div class="row" style="display:none">
-        <div class="scraper"></div>
-    </div>
-
-    
-    <button id="changeRatioBtn1_1">1:1</button>
-    <button id="changeRatioBtn2_1">2:1</button>
-    <button id="changeRatioBtn1_2">1:2</button>
-    <button id="changeRatioBtn3_2">3:2</button>
-    <button id="changeRatioBtn2_3">2:3</button>
-    <button id="changeRatioBtn4_3">4:3</button>
-    <button id="changeRatioBtn3_4">3:4</button>
-    <button id="changeRatioBtn4_5">4:5</button>
-    <button id="changeRatioBtn5_7">5:7</button>
-    <button id="changeRatioBtn16_9">16:9</button>
-    <button id="changeRatioBtn9_16">9:16</button><br>
     <input id="btn-Preview-Image" type="button" value="Preview" />
     <a id="btn-Convert-Html2Image" href="#">Download</a>
     <div id="previewImage">
