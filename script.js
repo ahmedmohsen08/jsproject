@@ -3,7 +3,7 @@ var currentfilter;
 var currentImg;
 var currentbackgroundColor;
 var filtervalue;
-var outerimage = "#imageView";
+var outerimage;
 var inputtxt = "";
 var fontcolor = "black";
 var fontstyle = "normal";
@@ -12,12 +12,18 @@ var fontbold = "200";
 var fontsize = "25";
 var textalign = "left";
 var checkbold = false;
-var currentMainBlur = "#imageView";//holds the current imageView
+var currentMainBlur;//holds the current imageView
 var pressed = false;
 var currentImageSrc = "";
 
 
 $(function () {
+    var loadedImages = ['./images/1.jpg', './images/2.jpg', './images/3.jpg', './images/4.jpg', './images/5.jpg'];
+    localStorage.setItem("images", JSON.stringify(loadedImages));
+    localStorage.setItem('option','scraper');
+
+
+
     initialLoad();
 
     var currentTab = "";
@@ -57,18 +63,71 @@ $(function () {
         $(currentTab).slideToggle();
     });
 
-    var loadedImages = ['./images/1.jpg', './images/2.jpg', './images/3.jpg', './images/4.jpg'];
-    var images = $('#imageView img');
-    for (var i = 0; i < images.length; i++) {
-        images[i].src = loadedImages[i];
-    }
-    $('#imageView img').draggable();
+    function btnMoveLeft(rightCol, leftCol, btn) {
+        var width = getComputedStyle(leftCol).width;
+        if (parseInt(width) > 150) {
+            width = (parseInt(width) - 10) + 'px';
+            leftCol.style.width = width;
 
-    var images = $('#imageView3 img');
-    for (var i = 0; i < 3; i++) {
-        images[i].src = loadedImages[i];
+            var left = getComputedStyle(btn).left;
+            left = (parseInt(left) - 10) + 'px';
+            btn.style.left = left;
+
+            console.log(rightCol);
+            var width = getComputedStyle(rightCol).width;
+            width = (parseInt(width) + 10) + 'px';
+            rightCol.style.width = width;
+        }
     }
-    $('#imageView3 img').draggable();
+
+    function btnMoveRight(rightCol, leftCol, btn) {
+        var width = getComputedStyle(leftCol).width;
+        if (parseInt(width) < parseInt(getComputedStyle($('#imageView')[0]).width) - 150) {
+            width = (parseInt(width) + 10) + 'px';
+            leftCol.style.width = width;
+
+            var left = getComputedStyle(btn).left;
+            left = (parseInt(left) + 10) + 'px';
+            btn.style.left = left;
+
+            var width = getComputedStyle(rightCol).width;
+            width = (parseInt(width) - 10) + 'px';
+            rightCol.style.width = width;
+        }
+    }
+
+    function btnMoveUp(topRow, bottomRow, btn) {
+        var height = getComputedStyle(topRow).height;
+        if (parseInt(height) > 150) {
+            height = (parseInt(height) - 10) + 'px';
+            topRow.style.height = height;
+
+            var top = getComputedStyle(btn).top;
+            top = (parseInt(top) - 10) + 'px';
+            btn.style.top = top;
+
+            var height = getComputedStyle(bottomRow).height;
+            height = (parseInt(height) + 10) + 'px';
+            bottomRow.style.height = height;
+        }
+    }
+
+    function btnMoveDown(topRow, bottomRow, btn) {
+        var height = getComputedStyle(topRow).height;
+        if (parseInt(height) < parseInt(getComputedStyle($('#imageView')[0]).height) - 150) {
+            height = (parseInt(height) + 10) + 'px';
+            topRow.style.height = height;
+
+            var top = getComputedStyle(btn).top;
+            top = (parseInt(top) + 10) + 'px';
+            btn.style.top = top;
+
+            var height = getComputedStyle(bottomRow).height;
+            height = (parseInt(height) - 10) + 'px';
+            bottomRow.style.height = height;
+        }
+    }
+
 
     $('#colBtn1 #leftBtn').on('click', function (e) {
         var col = $('.col1')[0];
@@ -127,51 +186,21 @@ $(function () {
         }
     });
 
-    $('#imageView3 #colBtn1 #leftBtn').on('click',function(){
-        var leftCol=$('#imageView3 .row2 .col1')[0];
-        var rightCol=$('#imageView3 .row2 .col2')[0];
-        var btn=$('#imageView3 #colBtn1')[0];
-        btnMoveLeft(rightCol,leftCol,btn);
+    $('#imageView3 #colBtn1 #leftBtn').on('click', function () {
+        var leftCol = $('#imageView3 .row2 .col1')[0];
+        var rightCol = $('#imageView3 .row2 .col2')[0];
+        var btn = $('#imageView3 #colBtn1')[0];
+        btnMoveLeft(rightCol, leftCol, btn);
     })
 
-    $('#imageView3 #colBtn1 #rightBtn').on('click',function(){
-        var leftCol=$('#imageView3 .row2 .col1')[0];
-        var rightCol=$('#imageView3 .row2 .col2')[0];
-        var btn=$('#imageView3 #colBtn1')[0];
-        btnMoveRight(rightCol,leftCol,btn);
+    $('#imageView3 #colBtn1 #rightBtn').on('click', function () {
+        var leftCol = $('#imageView3 .row2 .col1')[0];
+        var rightCol = $('#imageView3 .row2 .col2')[0];
+        var btn = $('#imageView3 #colBtn1')[0];
+        btnMoveRight(rightCol, leftCol, btn);
     })
 
-    function btnMoveLeft(rightCol,leftCol,btn){
-        var width = getComputedStyle(leftCol).width;
-        if (parseInt(width) > 150) {
-            width = (parseInt(width) - 10) + 'px';
-            leftCol.style.width = width;
 
-            var left = getComputedStyle(btn).left;
-            left = (parseInt(left) - 10) + 'px';
-            btn.style.left = left;
-
-            var width = getComputedStyle(rightCol).width;
-            width = (parseInt(width) + 10) + 'px';
-            rightCol.style.width = width;
-        }
-    }
-
-    function btnMoveRight(rightCol,leftCol,btn){
-        var width = getComputedStyle(leftCol).width;
-        if (parseInt(width) < parseInt(getComputedStyle($('#imageView')[0]).width) - 150) {
-            width = (parseInt(width) + 10) + 'px';
-            leftCol.style.width = width;
-
-            var left = getComputedStyle(btn).left;
-            left = (parseInt(left) + 10) + 'px';
-            btn.style.left = left;
-
-            var width = getComputedStyle(rightCol).width;
-            width = (parseInt(width) - 10) + 'px';
-            rightCol.style.width = width;
-        }
-    }
 
     $('#colBtn2 #rightBtn').on('click', function (e) {
         var col = $('.col1')[1];
@@ -230,62 +259,102 @@ $(function () {
         }
     });
 
-    $('#imageView3 #rowBtn1 #upBtn').on('click',function(){
-        var topRow=$('#imageView3 .row1')[0];
-        var bottomRow=$('#imageView3 .row2')[0];
-        var btn=$('#imageView3 #rowBtn1')[0];
-        btnMoveUp(topRow,bottomRow,btn);
+    $('#imageView3 #rowBtn1 #upBtn').on('click', function () {
+        var topRow = $('#imageView3 .row1')[0];
+        var bottomRow = $('#imageView3 .row2')[0];
+        var btn = $('#imageView3 #rowBtn1')[0];
+        btnMoveUp(topRow, bottomRow, btn);
     })
 
-    $('#imageView3 #rowBtn1 #downBtn').on('click',function(){
-        var topRow=$('#imageView3 .row1')[0];
-        var bottomRow=$('#imageView3 .row2')[0];
-        var btn=$('#imageView3 #rowBtn1')[0];
-        btnMoveDown(topRow,bottomRow,btn);
+    $('#imageView3 #rowBtn1 #downBtn').on('click', function () {
+        var topRow = $('#imageView3 .row1')[0];
+        var bottomRow = $('#imageView3 .row2')[0];
+        var btn = $('#imageView3 #rowBtn1')[0];
+        btnMoveDown(topRow, bottomRow, btn);
     })
 
-    function btnMoveUp(topRow,bottomRow,btn){
-        var height = getComputedStyle(topRow).height;
-        if (parseInt(height) > 150) {
-            height = (parseInt(height) - 10) + 'px';
-            topRow.style.height = height;
+    //imageView2 btns
+    $('#imageView2 #rowBtn1 #upBtn').on('click', function () {
+        var topRow = $('#imageView2 .row1')[0];
+        var bottomRow = $('#imageView2 .row2')[0];
+        var btn = $('#imageView2 #rowBtn1')[0];
+        btnMoveUp(topRow, bottomRow, btn);
+    })
 
-            var top = getComputedStyle(btn).top;
-            top = (parseInt(top) - 10) + 'px';
-            btn.style.top = top;
+    $('#imageView2 #rowBtn1 #downBtn').on('click', function () {
+        var topRow = $('#imageView2 .row1')[0];
+        var bottomRow = $('#imageView2 .row2')[0];
+        var btn = $('#imageView2 #rowBtn1')[0];
+        btnMoveDown(topRow, bottomRow, btn);
+    })
 
-            var height = getComputedStyle(bottomRow).height;
-            height = (parseInt(height) + 10) + 'px';
-            bottomRow.style.height = height;
-        }
-    }
+    //imageView5 btns
+    $('#imageView5 #rowBtn1 #upBtn').on('click', function () {
+        var topRow = $('#imageView5 .row1')[0];
+        var bottomRow = $('#imageView5 .row2')[0];
+        var btn = $('#imageView5 #rowBtn1')[0];
+        btnMoveUp(topRow, bottomRow, btn);
+    })
 
-    function btnMoveDown(topRow,bottomRow,btn){
-        var height = getComputedStyle(topRow).height;
-        if (parseInt(height) < parseInt(getComputedStyle($('#imageView')[0]).height) - 150) {
-            height = (parseInt(height) + 10) + 'px';
-            topRow.style.height = height;
+    $('#imageView5 #rowBtn1 #downBtn').on('click', function () {
+        var topRow = $('#imageView5 .row1')[0];
+        var bottomRow = $('#imageView5 .row2')[0];
+        var btn = $('#imageView5 #rowBtn1')[0];
+        btnMoveDown(topRow, bottomRow, btn);
+    })
 
-            var top = getComputedStyle(btn).top;
-            top = (parseInt(top) + 10) + 'px';
-            btn.style.top = top;
+    $('#imageView5 #rowBtn2 #upBtn').on('click', function () {
+        var topRow = $('#imageView5 .row2')[0];
+        var bottomRow = $('#imageView5 .row3')[0];
+        var btn = $('#imageView5 #rowBtn2')[0];
+        btnMoveUp(topRow, bottomRow, btn);
+    })
 
-            var height = getComputedStyle(bottomRow).height;
-            height = (parseInt(height) - 10) + 'px';
-            bottomRow.style.height = height;
-        }
-    }
+    $('#imageView5 #rowBtn2 #downBtn').on('click', function () {
+        var topRow = $('#imageView5 .row2')[0];
+        var bottomRow = $('#imageView5 .row3')[0];
+        var btn = $('#imageView5 #rowBtn2')[0];
+        btnMoveDown(topRow, bottomRow, btn);
+    })
+
+    $('#imageView5 #colBtn1 #leftBtn').on('click', function () {
+        var leftCol = $('#imageView5 .row1 .col1')[0];
+        var rightCol = $('#imageView5 .row1 .col2')[0];
+        var btn = $('#imageView5 #colBtn1')[0];
+        btnMoveLeft(rightCol, leftCol, btn);
+    })
+
+    $('#imageView5 #colBtn1 #rightBtn').on('click', function () {
+        var leftCol = $('#imageView5 .row1 .col1')[0];
+        var rightCol = $('#imageView5 .row1 .col2')[0];
+        var btn = $('#imageView5 #colBtn1')[0];
+        btnMoveRight(rightCol, leftCol, btn);
+    })
+
+    $('#imageView5 #colBtn2 #leftBtn').on('click', function () {
+        var leftCol = $('#imageView5 .row3 .col1')[0];
+        var rightCol = $('#imageView5 .row3 .col2')[0];
+        var btn = $('#imageView5 #colBtn2')[0];
+        btnMoveLeft(rightCol, leftCol, btn);
+    })
+
+    $('#imageView5 #colBtn2 #rightBtn').on('click', function () {
+        var leftCol = $('#imageView5 .row3 .col1')[0];
+        var rightCol = $('#imageView5 .row3 .col2')[0];
+        var btn = $('#imageView5 #colBtn2')[0];
+        btnMoveRight(rightCol, leftCol, btn);
+    })
+
 
 
     var getCanvas;
 
     $("#btn-Preview-Image").on('click', function () {
-        var element = $("#imageView")[0];
+        var element = $(outerimage)[0];
         html2canvas(element, {
             onrendered: function (canvas) {
                 $("#previewImage").empty().append(canvas);
                 getCanvas = canvas;
-                console.log(canvas);
             }
         });
     });
@@ -620,37 +689,15 @@ $(function () {
     var countzoomin = 1;
     var countzoomout = countzoomin;
     countzoomin = countzoomout;
-    // $(".zoomin").on("click", function () {
-    //     countzoomin += .1;
-    //     var v = "scale(" + (1 * countzoomin) + ")";
-    //     if (countzoomin == 1.5) {
-    //         countzoomin = 1;
-
-
-    //     }
-    //     $(currentImg).css("transform", v);
-
-
-    // })
 
     $(".zoomin").on("click", function () {
         var img = $(currentImg)[0];
         var scaleX = (img.getBoundingClientRect().width / img.offsetWidth) + 0.1;
-        if (scaleX < 1.5) {
+        if (scaleX < 2) {
             scaleX = "scale(" + scaleX + ")";
             $(currentImg).css("transform", scaleX);
         }
     })
-
-    // var countzoomout = countzoomin;
-    // $(".zoomout").on("click", function () {
-    //     countzoomout -= .1;
-    //     var v = "scale(" + (1 * countzoomout) + ")";
-    //     $(currentImg).css("transform", v);
-    //     if (countzoomout == 0)
-    //         countzoomout = 1;
-
-    // })
 
     var countzoomout = countzoomin;
     $(".zoomout").on("click", function () {
@@ -662,7 +709,22 @@ $(function () {
         }
     })
 
+    ///////////////////////////////////////////////////
+    //vertical and reverse
 
+    var reverse = 1;
+    $(".reverse").on('click', function () {
+        var oldtransform = $(currentImg).css("transform");
+        $(currentImg).css({ "transform": "scalex(" + (reverse *= -1) + ")" })
+
+        //$(currentImg).css("transform","scalex("+(reverse*=-1)+")");
+    })
+    var vertical = 1;
+    $(".vertical").on('click', function () {
+        var oldtransform = $(currentImg).css("transform");
+        $(currentImg).css({ "transform": "scaley(" + (vertical *= -1) + ")" })
+        //$(currentImg).css("transform","scaley("+(vertical*=-1)+")");
+    })
     /////////////////////////////////////////////////////////////////////////////////////////////////
 
     //move right and left
@@ -673,9 +735,8 @@ $(function () {
             console.log('true');
             imgleft = 0;
         }
-        else
-        {
-            imgleft=parseInt(imgleft);
+        else {
+            imgleft = parseInt(imgleft);
         }
         console.log(imgleft);
         imgleft -= 15;
@@ -689,9 +750,8 @@ $(function () {
             console.log('true');
             imgleft = 0;
         }
-        else
-        {
-            imgleft=parseInt(imgleft);
+        else {
+            imgleft = parseInt(imgleft);
         }
         console.log(imgleft);
         imgleft += 15;
@@ -705,9 +765,8 @@ $(function () {
         if (imgtop == 'auto') {
             imgtop = 0;
         }
-        else
-        {
-            imgtop=parseInt(imgtop);
+        else {
+            imgtop = parseInt(imgtop);
         }
         imgtop -= 15;
         $(currentImg).css("top", imgtop + 'px');
@@ -720,9 +779,8 @@ $(function () {
         if (imgtop == 'auto') {
             imgtop = 0;
         }
-        else
-        {
-            imgtop=parseInt(imgtop);
+        else {
+            imgtop = parseInt(imgtop);
         }
         imgtop += 15;
         $(currentImg).css("top", imgtop + 'px');
@@ -955,7 +1013,7 @@ $(function () {
     $("#textdone").on("click", function () {
 
 
-        document.querySelector(".output").insertAdjacentHTML('beforeend', "<p id=" + "textoutput" + (++countParag) + "></p>");
+        document.querySelector(outerimage + " .output").insertAdjacentHTML('beforeend', "<p id=" + "textoutput" + (++countParag) + "></p>");
 
         inputtxt = $("#inputtext").val();
         $("#textoutput" + (countParag)).text(inputtxt);
@@ -972,6 +1030,11 @@ $(function () {
 
 
 
+    })
+
+    $('p').on('click',function(e){
+        var currentText=e.currentTarget;
+        
     })
 
 
@@ -1042,20 +1105,6 @@ $(function () {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    var images = ['./images/1.jpg', './images/2.jpg', './images/3.jpg', './images/4.jpg', './images/5.jpg', './images/6.jpg', './images/7.jpg', './images/8.jpg'];
-    var img = document.createElement("img");
-    var left=1;
-    var top=50;
-    for (var i = 0; i < images.length; i++) {
-
-        document.querySelector("#scraper").insertAdjacentHTML('beforeend', "<img id=" + "inputScraperImg" + (i + 1) + " src=" + images[i] + ">");
-        $("#inputScraperImg" + (i + 1)).css("position","absolute");
-        $("#inputScraperImg" + (i + 1)).draggable();
-        $("#inputScraperImg" + (i + 1)).css("border-radius",13+"px "+80+"px");
-        insertScraperImg($("#inputScraperImg" + (i + 1)),left+=12,top,220,180);
-
-    }
 
     $('#imageContainer img').on('click', function (e) {
         if (pressed == true) {
@@ -1130,7 +1179,82 @@ function initialLoad() {
     $(".textbar").hide();
     $('#imageView').hide();
     $('#scraper').hide();
-    $('#imageView3').show();
+    $('#imageView3').hide();
+    $('#imageView2').hide();
+    $('#imageView5').hide();
+    $('#imageView1').hide();
+
+    var retrievedData = localStorage.getItem("images");
+    var retrievedImages = JSON.parse(retrievedData);
+    var retrievedOption = localStorage.getItem("option");
+
+    if (retrievedOption != 'scraper' || retrievedImages.length==1) {
+        switch (retrievedImages.length) {
+            case 5:
+                var images = $('#imageView5 img');
+                for (var i = 0; i < retrievedImages.length; i++) {
+                    images[i].src = retrievedImages[i];
+                }
+                $('#imageView5 img').draggable();
+                $('#imageView5').show();
+                outerimage='#imageView5';
+                break;
+            case 4:
+                var images = $('#imageView img');
+                for (var i = 0; i < retrievedImages.length; i++) {
+                    images[i].src = retrievedImages[i];
+                }
+                $('#imageView img').draggable();
+                $('#imageView').show();
+                outerimage='#imageView4';
+                break;
+            case 3:
+                var images = $('#imageView3 img');
+                for (var i = 0; i < retrievedImages.length; i++) {
+                    images[i].src = retrievedImages[i];
+                }
+                $('#imageView3 img').draggable();
+                $('#imageView3').show();
+                outerimage='#imageView3';
+                break;
+            case 2:
+                var images = $('#imageView2 img');
+                for (var i = 0; i < retrievedImages.length; i++) {
+                    images[i].src = retrievedImages[i];
+                }
+                $('#imageView2 img').draggable();
+                $('#imageView2').show();
+                outerimage='#imageView2';
+                break;
+            case 1:
+
+                var images = $('#imageView1 img');
+                for (var i = 0; i < retrievedImages.length; i++) {
+                    images[i].src = retrievedImages[i];
+                }
+                $('#imageView1 img').draggable();
+
+                $('#imageView1').show();
+                outerimage='#imageView1';
+                break;
+        }
+    }
+    else {
+        var img = document.createElement("img");
+        var left = 1;
+        var top = 50;
+        for (var i = 0; i < retrievedImages.length; i++) {
+
+            document.querySelector("#scraper").insertAdjacentHTML('beforeend', "<img id=" + "inputScraperImg" + (i + 1) + " src=" + retrievedImages[i] + ">");
+            $("#inputScraperImg" + (i + 1)).css("position", "absolute");
+            $("#inputScraperImg" + (i + 1)).draggable();
+            $("#inputScraperImg" + (i + 1)).css("border-radius", 13 + "px " + 80 + "px");
+            insertScraperImg($("#inputScraperImg" + (i + 1)), left += 12, top, 220, 180);
+
+        }
+        $('#scraper').show();
+        outerimage='#scraper';
+    }
 }
 function ShowFilter() {
 

@@ -12,6 +12,7 @@ body{
 .row {
     /*border: 2px solid red;*/
     width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -151,6 +152,22 @@ div {
     height: 50%;
 }
 
+.tableRow5{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 33%;
+}
+
+.tableRow1{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
 .tableCol{
     overflow: hidden;
 }
@@ -163,7 +180,7 @@ img{
     border: solid 1px black;
 }
 
-#imageView,#scraper,#imageView3{
+#imageView,#scraper,#imageView3,#imageView2,#imageView5,#imageView1{
     position: relative;
     width:500px; 
     height:500px; 
@@ -172,6 +189,7 @@ img{
     overflow: hidden;
 }
 
+/*imageView4 btns*/
 #imageView #colBtn1{
     position: absolute;
     top: 90px;
@@ -192,7 +210,7 @@ img{
     left: 90px;
 }
 
-
+/*imageView3 btns*/
 #imageView3 #colBtn1{
     position: absolute;
     top: 370px;
@@ -204,6 +222,39 @@ img{
     top: 228px;
     left: 150px;
 }
+
+/*imageView2 btns*/
+#imageView2 #rowBtn1{
+    position: absolute;
+    top: 228px;
+    left: 228px;
+}
+
+/*imageView5 btns*/
+#imageView5 #colBtn1{
+    position: absolute;
+    top: 80px;
+    left:225px;
+}
+
+#imageView5 #colBtn2{
+    position: absolute;
+    top: 370px;
+    left:225px;
+}
+
+#imageView5 #rowBtn1{
+    position: absolute;
+    top: 150px;
+    left: 150px;
+}
+
+#imageView5 #rowBtn2{
+    position: absolute;
+    top: 310px;
+    left: 320px;
+}
+
 /*---------------------------------------------------*/
 
 
