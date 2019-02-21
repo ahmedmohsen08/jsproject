@@ -18,22 +18,28 @@
 
 <body>
     <div class="row">
-        <h1>collage maker</h1>
-    </div>
+        <div id="header" class="col-12">
+            <h3 id="Home">Home</h3>
+            <h3>&nbsp;&nbsp;&nbsp;</h3>
+            <h3 id="AboutUs">About us</h3>
+            <h3>&nbsp;&nbsp;&nbsp;</h3>
+            <h3 id="Contacts">Contacts</h3>
+            <h3>&nbsp;&nbsp;</h3>
+        </div>
 
-    <div class="row">
-        <div class="menu col-12">
-            <ul>
-                <li><a href="#">home</a></li>
-                <li><a href="#">single editor</a></li>
-                <li><a href="#">camera</a></li>
-                <li><a href="#">collage</a></li>
-                <li><a href="#">scrapbook</a></li>
-            </ul>
+        <div>
+            <img id="JANlogo" src="jan.png">
+            <h6 id="flower1">*</h6>
+            <h6 id="flower2">*</h6>
+            <h6 id="flower3">*</h6>
+            <h6 id="flower4">*</h6>
+            <h6 id="flower5">*</h6>
         </div>
     </div>
 
     <div class="row" id='imageContainer'>
+        <input id="btn-Preview-Image" type="button" value="Preview" />
+        <a id="btn-Convert-Html2Image" href="#">Download</a>
         <div id="imageView1">
             <div class="tableRow1 row1">
                 <div class="tablecol col-12 col1">
@@ -188,6 +194,9 @@
 
             </div>
         </div>
+
+        <div id="previewImage">
+        </div>
     </div>
 
     <div class="row">
@@ -216,12 +225,6 @@
             <button class="rotateright designbtn">
                 <span class="styleIcone">&#8635;</span>
                 <p class="featuresfont">Right<p>
-            </button>
-
-            <button class="fill designbtn">
-                <span class="styleIcone">&#9974;</span>
-                <pre><p class="featuresfont">Fill</p></pre>
-                <!--b reset elsora lw 3mlna feha ay positions-->
             </button>
 
             <button class="reverse designbtn">
@@ -283,12 +286,6 @@
             <button class="rotateright designbtn">
                 <span class="styleIcone">&#8635;</span>
                 <p class="featuresfont">Right<p>
-            </button>
-
-            <button class="fill designbtn">
-                <span class="styleIcone">&#9974;</span>
-                <pre><p class="featuresfont">Fill</p></pre>
-                <!--b reset elsora lw 3mlna feha ay positions-->
             </button>
 
             <button class="reverse designbtn">
@@ -356,11 +353,6 @@
 
     <div class="row">
         <div class="multiBlack">
-            <button class=" layout designbtn">
-                <span class="styleIcone fa">&#xf247;</span>
-                <p class="featuresfont">Layout<p>
-            </button>
-
             <button class="background designbtn">
                 <span class="styleIcone fas">&#xf576;</span>
                 <p class="featuresfont">Background<p>
@@ -533,20 +525,6 @@
             <button class="Peru" style="background-color:Peru">
             </button>
 
-            <button class="DimGray" style="background-color:DimGray">
-            </button>
-
-
-            <button class="Wheat" style="background-color:Wheat">
-            </button>
-
-
-            <button class="DimGray" style="background-color:DimGray">
-            </button>
-            <button class="Black" style="background-color:Black">
-            </button>
-
-
 
         </div>
 
@@ -631,16 +609,31 @@
 
 
             </div>
-        
 
-            
+         
+
         </div>
     </div>
+    <div id="animatedFlowers">
+        <h6 id="flower6" class="animation">*</h6>
+        <h6 id="flower7" class="animation">*</h6>
+        <h6 id="flower8" class="animation">*</h6>
+        <h6 id="flower9" class="animation">*</h6>
+        <!-- </div>
 
-    <input id="btn-Preview-Image" type="button" value="Preview" />
-    <a id="btn-Convert-Html2Image" href="#">Download</a>
-    <div id="previewImage">
-    </div>
+    <div id="animatedFlowers"> -->
+          <h6 id="flower14" class="animation">*</h6>
+          <h6 id="flower15" class="animation">*</h6>
+          <h6 id="flower16" class="animation">*</h6>
+          <h6 id="flower17" class="animation">*</h6>
+             
+          <h6 id="flower10" class="animation">*</h6>
+          <h6 id="flower11" class="animation">*</h6>
+          <h6 id="flower12" class="animation">*</h6>
+          <h6 id="flower13" class="animation">*</h6>
+          </div>
+
+    <div id="previewClone"></div>
 </body>
 
 </html>

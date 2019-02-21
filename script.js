@@ -17,51 +17,16 @@ var pressed = false;
 var currentImageSrc = "";
 
 
+
+var retrievedData = localStorage.getItem("images");
+var retrievedImages = JSON.parse(retrievedData);
+console.log(retrievedImages);
+
+var retrievedOption = localStorage.getItem("option");
+
+
 $(function () {
-    var loadedImages = ['./images/1.jpg', './images/2.jpg', './images/3.jpg', './images/4.jpg', './images/5.jpg'];
-    localStorage.setItem("images", JSON.stringify(loadedImages));
-    localStorage.setItem('option','scraper');
-
-
-
     initialLoad();
-
-    var currentTab = "";
-    $("#framesBtn").on('click', function () {
-        $(currentTab).hide();
-        currentTab = '#framesBar';
-        $(currentTab).slideToggle();
-    });
-
-    $("#blurBtn").on('click', function () {
-        $(currentTab).hide();
-        currentTab = '#blurBar';
-        $(currentTab).slideToggle();
-    });
-
-    $("#backgroundBtn").on('click', function () {
-        $(currentTab).hide();
-        currentTab = '#background';
-        $(currentTab).slideToggle();
-    });
-
-    $("#ratioBtn").on('click', function () {
-        $(currentTab).hide();
-        currentTab = '#ratio';
-        $(currentTab).slideToggle();
-    });
-
-    $("#textBtn").on('click', function () {
-        $(currentTab).hide();
-        currentTab = '#text';
-        $(currentTab).slideToggle();
-    });
-
-    $("#filterBtn").on('click', function () {
-        $(currentTab).hide();
-        currentTab = '#filter';
-        $(currentTab).slideToggle();
-    });
 
     function btnMoveLeft(rightCol, leftCol, btn) {
         var width = getComputedStyle(leftCol).width;
@@ -129,63 +94,52 @@ $(function () {
     }
 
 
-    $('#colBtn1 #leftBtn').on('click', function (e) {
-        var col = $('.col1')[0];
-        var width = getComputedStyle(col).width;
-        if (parseInt(width) > 150) {
-            width = ((parseInt(width) / 500) * 100 - 1) + '%';
-            col.style.width = width;
-
-            var btn = $('#colBtn1')[0];
-            var left = getComputedStyle(btn).left;
-            left = ((parseInt(left) / 500) * 100 - 1) + '%';
-            btn.style.left = left;
-
-            var col = $('.col2')[0];
-            var width = getComputedStyle(col).width;
-            width = ((parseInt(width) / 500) * 100 + 1) + '%';
-            col.style.width = width;
-        }
+    //imageView btns
+    $('#imageView #colBtn1 #leftBtn').on('click', function (e) {
+        var leftCol = $('#imageView .row1 .col1')[0];
+        var rightCol = $('#imageView .row1 .col2')[0];
+        var btn = $('#imageView #colBtn1')[0];
+        btnMoveLeft(rightCol, leftCol, btn);
     });
 
-    $('#colBtn1 #rightBtn').on('click', function (e) {
-        var col = $('.col1')[0];
-        var width = getComputedStyle(col).width;
-        if (parseInt(width) < parseInt(getComputedStyle($('#imageView')[0]).width) - 150) {
-            width = (parseInt(width) + 10) + 'px';
-            col.style.width = width;
-
-            var btn = $('#colBtn1')[0];
-            var left = getComputedStyle(btn).left;
-            left = (parseInt(left) + 10) + 'px';
-            btn.style.left = left;
-
-            var col = $('.col2')[0];
-            var width = getComputedStyle(col).width;
-            width = (parseInt(width) - 10) + 'px';
-            col.style.width = width;
-        }
+    $('#imageView #colBtn1 #rightBtn').on('click', function (e) {
+        var leftCol = $('#imageView .row1 .col1')[0];
+        var rightCol = $('#imageView .row1 .col2')[0];
+        var btn = $('#imageView #colBtn1')[0];
+        btnMoveRight(rightCol, leftCol, btn);
     });
 
-    $('#colBtn2 #leftBtn').on('click', function (e) {
-        var col = $('.col1')[1];
-        var width = getComputedStyle(col).width;
-        if (parseInt(width) > 150) {
-            width = (parseInt(width) - 10) + 'px';
-            col.style.width = width;
-
-            var btn = $('#colBtn2')[0];
-            var left = getComputedStyle(btn).left;
-            left = (parseInt(left) - 10) + 'px';
-            btn.style.left = left;
-
-            var col = $('.col2')[1];
-            var width = getComputedStyle(col).width;
-            width = (parseInt(width) + 10) + 'px';
-            col.style.width = width;
-        }
+    $('#imageView #colBtn2 #leftBtn').on('click', function (e) {
+        var leftCol = $('#imageView .row2 .col1')[0];
+        var rightCol = $('#imageView .row2 .col2')[0];
+        var btn = $('#imageView #colBtn2')[0];
+        btnMoveLeft(rightCol, leftCol, btn);
     });
 
+
+    $('#imageView #colBtn2 #rightBtn').on('click', function (e) {
+        var leftCol = $('#imageView .row2 .col1')[0];
+        var rightCol = $('#imageView .row2 .col2')[0];
+        var btn = $('#imageView #colBtn2')[0];
+        btnMoveRight(rightCol, leftCol, btn);
+    });
+
+    $('#imageView #rowBtn #upBtn').on('click', function (e) {
+        var topRow = $('#imageView .row1')[0];
+        var bottomRow = $('#imageView .row2')[0];
+        var btn = $('#imageView #rowBtn')[0];
+        btnMoveUp(topRow, bottomRow, btn);
+    });
+
+    $('#imageView #rowBtn #downBtn').on('click', function (e) {
+        var topRow = $('#imageView .row1')[0];
+        var bottomRow = $('#imageView .row2')[0];
+        var btn = $('#imageView #rowBtn')[0];
+        btnMoveDown(topRow, bottomRow, btn);
+    });
+
+
+    //imageView3 btn
     $('#imageView3 #colBtn1 #leftBtn').on('click', function () {
         var leftCol = $('#imageView3 .row2 .col1')[0];
         var rightCol = $('#imageView3 .row2 .col2')[0];
@@ -199,65 +153,6 @@ $(function () {
         var btn = $('#imageView3 #colBtn1')[0];
         btnMoveRight(rightCol, leftCol, btn);
     })
-
-
-
-    $('#colBtn2 #rightBtn').on('click', function (e) {
-        var col = $('.col1')[1];
-        var width = getComputedStyle(col).width;
-        if (parseInt(width) < parseInt(getComputedStyle($('#imageView')[0]).width) - 150) {
-            width = (parseInt(width) + 10) + 'px';
-            col.style.width = width;
-
-            var btn = $('#colBtn2')[0];
-            var left = getComputedStyle(btn).left;
-            left = (parseInt(left) + 10) + 'px';
-            btn.style.left = left;
-
-            var col = $('.col2')[1];
-            var width = getComputedStyle(col).width;
-            width = (parseInt(width) - 10) + 'px';
-            col.style.width = width;
-        }
-    });
-
-    $('#upBtn').on('click', function (e) {
-        var row = $('.row1')[0];
-        var height = getComputedStyle(row).height;
-        if (parseInt(height) > 150) {
-            height = (parseInt(height) - 10) + 'px';
-            row.style.height = height;
-
-            var btn = $('#rowBtn')[0];
-            var top = getComputedStyle(btn).top;
-            top = (parseInt(top) - 10) + 'px';
-            btn.style.top = top;
-
-            var row = $('.row2')[0];
-            var height = getComputedStyle(row).height;
-            height = (parseInt(height) + 10) + 'px';
-            row.style.height = height;
-        }
-    });
-
-    $('#downBtn').on('click', function (e) {
-        var row = $('.row1')[0];
-        var height = getComputedStyle(row).height;
-        if (parseInt(height) < parseInt(getComputedStyle($('#imageView')[0]).height) - 150) {
-            height = (parseInt(height) + 10) + 'px';
-            row.style.height = height;
-
-            var btn = $('#rowBtn')[0];
-            var top = getComputedStyle(btn).top;
-            top = (parseInt(top) + 10) + 'px';
-            btn.style.top = top;
-
-            var row = $('.row2')[0];
-            var height = getComputedStyle(row).height;
-            height = (parseInt(height) - 10) + 'px';
-            row.style.height = height;
-        }
-    });
 
     $('#imageView3 #rowBtn1 #upBtn').on('click', function () {
         var topRow = $('#imageView3 .row1')[0];
@@ -350,83 +245,92 @@ $(function () {
     var getCanvas;
 
     $("#btn-Preview-Image").on('click', function () {
-        var element = $(outerimage)[0];
+
+        
+        $(outerimage).clone().appendTo('#previewClone');
+        $('#previewClone button').remove();
+        var element = $('#previewClone');
+
         html2canvas(element, {
             onrendered: function (canvas) {
                 $("#previewImage").empty().append(canvas);
                 getCanvas = canvas;
             }
         });
+        reviewImg();
+        $('#previewClone').hide();
     });
 
     $("#btn-Convert-Html2Image").on('click', function () {
         var imgageData = getCanvas.toDataURL("image/png");
         var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
         $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+        $('#previewImage').children().remove();
+        window.location.replace('mainPage.html', '_blank');
     });
 
     $('#changeRatioBtn1_1').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = '500px';
         view.style.height = '500px';
     });
 
     $('#changeRatioBtn2_1').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = '500px';
         view.style.height = 500 / 2 + 'px';
     });
 
     $('#changeRatioBtn1_2').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = 500 / 2 + 'px';
         view.style.height = '500px';
     });
 
     $('#changeRatioBtn3_2').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = 500 + 'px';
         view.style.height = (500 * 2) / 3 + 'px';
     });
 
     $('#changeRatioBtn2_3').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = (500 * 2) / 3 + 'px';
         view.style.height = 500 + 'px';
     });
 
     $('#changeRatioBtn4_3').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = '500px';
         view.style.height = (500 * 3) / 4 + 'px';
     });
 
     $('#changeRatioBtn3_4').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = (500 * 3) / 4 + 'px';
         view.style.height = 500 + 'px';
     });
 
     $('#changeRatioBtn4_5').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = (500 * 4) / 5 + 'px';
         view.style.height = 500 + 'px';
     });
 
     $('#changeRatioBtn5_7').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = (500 * 5) / 7 + 'px';
         view.style.height = 500 + 'px';
     });
 
     $('#changeRatioBtn16_9').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = '500px';
         view.style.height = (500 * 9) / 16 + 'px';
     });
 
     $('#changeRatioBtn9_16').on('click', function () {
-        var view = $("#imageView")[0];
+        var view = $(outerimage)[0];
         view.style.width = (500 * 9) / 16 + 'px';
         view.style.height = 500 + 'px';
     });
@@ -449,10 +353,6 @@ $(function () {
 
         $(".allImageFilterRange").hide();
         $(".textbar").hide();
-
-
-
-
     })
 
 
@@ -464,9 +364,6 @@ $(function () {
         $(".MainblurRange").hide();
         $(".allImageFilterRange").hide();
         $(".textbar").hide();
-
-
-
     })
 
 
@@ -478,9 +375,9 @@ $(function () {
         $(".spaceRange").toggle();
         $(".allImageFilterRange").hide();
         $(".textbar").hide();
-
-
     })
+
+
     $(".blurr").on("click", function () {
 
         $(".backgroundColorBar").hide();
@@ -493,8 +390,6 @@ $(function () {
         $(".mainblur").attr("min", 0);
         $(".mainblur").attr("max", 100);
         $(".mainblur").attr("value", 0);
-
-
     })
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
 
@@ -504,11 +399,8 @@ $(function () {
         currentfilter = "blur";
         filtervalue = currentfilter + "(" + blurValue + "px)";
 
-        $(currentMainBlur).css("filter", filtervalue);
+        $(outerimage).css("filter", filtervalue);
         //e.stopPropagation();
-
-
-
     })
 
 
@@ -548,8 +440,6 @@ $(function () {
 
 
         currentfilter = "hue-rotate";
-
-
     })
 
     $("#opacity").on("click", function () {
@@ -968,31 +858,6 @@ $(function () {
 
     })
 
-    $(".DimGray").on("click", function () {
-
-        SetBackgroundColor($(outerimage), "DimGray");
-
-    })
-
-    $(".Wheat").on("click", function () {
-
-        SetBackgroundColor($(outerimage), "Wheat");
-
-    })
-
-    $(".DimGray").on("click", function () {
-
-        SetBackgroundColor($(outerimage), "DimGray");
-
-    })
-
-    $(".Black").on("click", function () {
-
-        SetBackgroundColor($(outerimage), "Black");
-
-    })
-
-
 
 
     /////////////////////////////////////////////////////////////////////////////////
@@ -1009,10 +874,11 @@ $(function () {
         ShowTextBar();
 
     })
+
     var countParag = 0;
     $("#textdone").on("click", function () {
 
-
+        console.log(outerimage);
         document.querySelector(outerimage + " .output").insertAdjacentHTML('beforeend', "<p id=" + "textoutput" + (++countParag) + "></p>");
 
         inputtxt = $("#inputtext").val();
@@ -1028,14 +894,20 @@ $(function () {
         $(".textbar").val(" ");
         $(".textbar").hide();
 
-
-
+        $("#textoutput" + (countParag)).on('click', function (e) {
+            var currentText = e.currentTarget;
+            console.log(currentText);
+            ShowTextBar();
+            e.stopPropagation();
+        })
     })
 
-    $('p').on('click',function(e){
-        var currentText=e.currentTarget;
-        
+    $('#deletetext').on("click", function () {
+
+        $('.output p').remove();
+        $(".textbar").hide();
     })
+    $(".textbar").draggable();
 
 
     $("#aligncenter").on("click", function () {
@@ -1127,6 +999,25 @@ $(function () {
         ShowBlackBar(e);
         e.stopPropagation();
     });
+
+
+    var AboutUs  = document.getElementById('AboutUs');
+    var Contacts = document.getElementById('Contacts');
+    var Home     = document.getElementById('Home');
+          
+    AboutUs.addEventListener('click',function()
+      {
+        window.location.replace('aboutUs.html','_blank');
+      });
+    Contacts.addEventListener('click',function()
+      {
+        window.location.replace('contactUs.html','_blank');
+      });
+    Home.addEventListener('click',function()
+       {
+         window.location.replace('mainPage.html','_blank');
+       });   
+
 });
 
 
@@ -1161,11 +1052,19 @@ function showRedBar(e) {
     $(".textbar").hide();
     $(".multiBlack").hide();
     $(".textbar").hide();
+    if (retrievedImages.length == 1) {
+        $(".singleBar").show();
+        $(".multiredbar").hide();
+    }
+    else {
+        $(".singleBar").hide();
+        $(".multiredbar").show();
+    }
 
-    $(".singleBar").hide();
-    $(".multiredbar").show();
     e.stopPropagation();
 }
+
+
 
 function initialLoad() {
     $(".multiBlack").show();
@@ -1184,11 +1083,15 @@ function initialLoad() {
     $('#imageView5').hide();
     $('#imageView1').hide();
 
-    var retrievedData = localStorage.getItem("images");
-    var retrievedImages = JSON.parse(retrievedData);
-    var retrievedOption = localStorage.getItem("option");
 
-    if (retrievedOption != 'scraper' || retrievedImages.length==1) {
+    GetLayoutOptions(retrievedImages, retrievedOption);
+
+
+}
+
+function GetLayoutOptions(retrievedImages, retrievedOption) {
+
+    if (retrievedOption != 'scraper' || retrievedImages.length == 1) {
         switch (retrievedImages.length) {
             case 5:
                 var images = $('#imageView5 img');
@@ -1197,7 +1100,7 @@ function initialLoad() {
                 }
                 $('#imageView5 img').draggable();
                 $('#imageView5').show();
-                outerimage='#imageView5';
+                outerimage = '#imageView5';
                 break;
             case 4:
                 var images = $('#imageView img');
@@ -1206,7 +1109,7 @@ function initialLoad() {
                 }
                 $('#imageView img').draggable();
                 $('#imageView').show();
-                outerimage='#imageView4';
+                outerimage = '#imageView';
                 break;
             case 3:
                 var images = $('#imageView3 img');
@@ -1215,7 +1118,7 @@ function initialLoad() {
                 }
                 $('#imageView3 img').draggable();
                 $('#imageView3').show();
-                outerimage='#imageView3';
+                outerimage = '#imageView3';
                 break;
             case 2:
                 var images = $('#imageView2 img');
@@ -1224,7 +1127,7 @@ function initialLoad() {
                 }
                 $('#imageView2 img').draggable();
                 $('#imageView2').show();
-                outerimage='#imageView2';
+                outerimage = '#imageView2';
                 break;
             case 1:
 
@@ -1235,7 +1138,8 @@ function initialLoad() {
                 $('#imageView1 img').draggable();
 
                 $('#imageView1').show();
-                outerimage='#imageView1';
+
+                outerimage = '#imageView1';
                 break;
         }
     }
@@ -1253,9 +1157,10 @@ function initialLoad() {
 
         }
         $('#scraper').show();
-        outerimage='#scraper';
+        outerimage = '#scraper';
     }
 }
+
 function ShowFilter() {
 
     filterdisplaybar = $(".AllFilters").css("display");
@@ -1263,8 +1168,12 @@ function ShowFilter() {
     if (filterdisplaybar == "none")
         $(".AllFilters").css("display", "flex");
     else
+    {
         $(".AllFilters").css({ "display": "none" })
+        $(".allImageFilterRange").hide();
 
+    }
+        
 }
 
 function ShowBlackBar(e) {
@@ -1288,6 +1197,10 @@ function DeleteImg() {
     var reply = confirm("Do you want to delete this image???");
     if (reply) {
         $(currentImg).remove();
+        var index = retrievedImages.indexOf($(currentImg).attr("src"));
+        retrievedImages.splice(index, 1);
+        initialLoad();
+
     }
 
 }
@@ -1296,8 +1209,23 @@ function SetBackgroundColor(element, color) {
     element.css("background-color", color);
 }
 
-function swap(firstImg, SecImg) {
+function reviewImg() {  
 
 
+    $(".multiBlack").hide();
+    $(".singleBar").hide();
+    $(".multiredbar").hide();
+    $(".ratioBar").hide();
+    $(".backgroundColorBar").hide();
+    $(".spaceRange").hide();
+    $(".MainblurRange").hide();
+    $(".allImageFilterRange").hide();
+    $(".textbar").hide();
+    $('#imageView').hide();
+    $('#scraper').hide();
+    $('#imageView3').hide();
+    $('#imageView2').hide();
+    $('#imageView5').hide();
+    $('#imageView1').hide();
 
 }

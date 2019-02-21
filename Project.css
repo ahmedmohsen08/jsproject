@@ -1,0 +1,506 @@
+
+/*------------------------whole body----------------------*/
+        
+        body { background-color: #222;}
+        .closure { min-height: 790px;
+                   height: 790px;}
+        #container { border: 5px solid rgb(255,035,104);
+                     background-color: #222;
+                   }
+        
+/*--------------------Buttons/input txt-------------------*/
+        
+        input { 
+                height: 100px;
+                width: 100px;
+                padding: 40px; /*--box size[<60 const]--*/
+                background-size: cover;
+                background-color: floralwhite;               
+                border-color: floralwhite;
+                border-radius: 20px;
+                border-width: thin;
+                margin: auto;
+                display: block;
+                box-shadow: 0px 0px 50px lavenderblush ;
+              }
+/*fix orange button bug*/        
+        #scrapIcon { height: 110px;/*--[input height +10]--*/
+                    width: 104px; /*--w +4--*/  
+                   }
+        #scrapIcon:hover { height: 100px;
+                           width: 100px;
+                         }
+        
+        [type='button']:hover,
+        [type='submit']:hover{ box-shadow: 0px 0px 200px white;
+                                padding: 70px;
+                                cursor: pointer;
+                              }
+/*----------------------Icons-----------------------------*/
+
+        .label {  font-family: curlz MT;
+                  font-size: 40px;
+                  font-weight: bold;
+                  position: absolute;
+                  color: lavenderblush;
+               }
+        .label:hover { box-shadow: 0px 0px 200px white;
+                       border-radius: 100px;
+                       margin: 10px;
+                       cursor: none;
+                     }
+/*------main page------*/
+        #multiPicIcon { background-image: url(iconMultiPic.png);
+                        position: absolute;
+                        top: 250px;
+                        left: 1250px;
+                      }
+        #label1 { left: 1280px;
+                  top: 390px;
+                }
+        #scrapIcon { background-image: url(iconScrap.png);
+                     position: absolute;
+                     top: 250px;
+                     left: 250px;
+                    }
+        #label3 { left: 120px;
+                  top: 390px;
+                }
+        #cameraIcon { background-image: url(iconCamera.png);
+                      position: absolute;
+                      top: 550px;
+                      left: 180px;
+                    }
+        #label2 { position: absolute;
+                  left: 210px;
+                  top: 690px;
+                }
+        #singleEditorIcon { background-image: url(iconSingleEditor.png);
+                            position: absolute;
+                            top: 150px;
+                            left: 730px;
+                          }
+        #label4 { position: absolute;
+                  left: 620px;
+                  top: 290px;
+                }
+/*---multiImages page--*/
+        #twoImagesIcon { background-image: url(twoImages.png);
+                         position: absolute;
+                         top: 300px;
+                         left: 400px;
+                        }
+        #label5 { left: 290px;
+                  top: 440px;
+                }
+        #threeImagesIcon { background-image: url(threeImages.png);
+                           position: absolute;
+                           top: 300px;
+                           left: 770px;
+                         }
+        #label6 { position: absolute;
+                  left: 710px;
+                  top: 440px;
+                }
+        #fourImagesIcon { background-image: url(fourImages.png);
+                          position: absolute;
+                          top: 300px;
+                          left: 1150px;
+                        }
+        #label7 { position: absolute;
+                  left: 1170px;
+                  top: 440px;
+                }
+        #fiveImagesIcon { background-image: url(fiveImages.png);
+                           position: absolute;
+                           top: 550px;
+                           left: 770px;
+                         }
+        #label8 { position: absolute;
+                  left: 710px;
+                  top: 700px;
+                }
+           
+/*--------------------------Bar---------------------------*/
+        
+        #header  { background-color: rgb(255,035,104);
+                   color: lavenderblush;
+                   font-size: 30px;
+                   font-family: jokerman;
+                   height: 90px;
+                   display: flex;
+                   justify-content: flex-end;
+                   align-items: center;
+                 }
+        #AboutUs:hover,
+        #Home:hover,
+        #Contacts:hover { box-shadow: 0px 0px 200px white;
+                          font-size: 45px;
+                          border-radius: 17px;
+                          padding: 6px; 
+                          cursor: pointer; 
+                        }
+        
+/*-----------------------JAN Logo-------------------------*/
+
+        #JANlogo { width: 230px;
+                   height: 120px;
+                   position: absolute;
+                   left: 5px;
+                   top: -8px;
+                 }
+        h6 { font-family: Elephant;
+             color: lavenderblush;
+             position: absolute;
+           }
+        #PhotoEditor { position: absolute;
+           top: 30px;
+           left: 250px;
+           font-size: 35px;   
+           color: lavenderblush;
+           font-family: Elephant;   
+           }
+        #flower1 { font-size: 110px;
+                   top: -280px;
+                   left: 230px;
+                 }
+        #flower2 { font-size: 80px;
+                   top: -99px;
+                   left: -4px;
+                 }
+        #flower3 { font-size: 80px;
+                   top: -180px;
+                   left: 280px;
+                 }
+        #flower4 { font-size: 30px;
+                   top: -40px;
+                   left: 330px;
+                 }
+        #flower5 { font-size: 30px;
+                   top: 70px;
+                   left: 0px;
+                 }
+/*------------------animation main page-------------------*/
+      .animation { 
+                    animation-iteration-count: 500;
+                    animation-duration: 5s;
+                    animation-direction: reverse;  
+                  }
+
+       @keyframes myAnimation10
+               { 0% { top: 245px;
+                    }
+                 100% { top: -18px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation11
+               { 0% { top: 270px;
+                    }
+                 100% { top: 8px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation12
+               { 0% { top: 300px;
+                    }
+                 100% { top: 33px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation13
+               { 0% { top: 500px;
+                    }
+                 100% { top: 62px;
+                        transform: rotate(360deg);
+                      }
+                }
+          #flower10 { font-size: 50px;
+                     top: -18px;
+                     left: 1500px;
+                     animation-name: myAnimation10;
+                   }
+           #flower11 { font-size: 44px;
+                      top: 8px;
+                      left: 1428px;
+                      animation-name: myAnimation11;
+                      animation-delay: 3s;
+                     }
+           #flower12 { font-size: 29px;
+                      top: 33px;
+                      left: 1347px;
+                      animation-name: myAnimation12;
+                      animation-delay: 1s;
+                     } 
+           #flower13 { font-size: 24px;
+                      top: 62px;
+                      left: 1548px;
+                      animation-name: myAnimation13;
+                     } 
+           
+/*---------------------------------------*/
+
+       @keyframes myAnimation6
+               { 0% { top: 245px;
+                    }
+                 100% { top: -18px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation7
+               { 0% { top: 270px;
+                    }
+                 100% { top: 8px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation8
+               { 0% { top: 300px;
+                    }
+                 100% { top: 33px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation9
+               { 0% { top: 500px;
+                    }
+                 100% { top: 62px;
+                        transform: rotate(360deg);
+                      }
+                }
+          #flower6 { font-size: 50px;
+                     top: -18px;
+                     left: 180px;
+                     animation-name: myAnimation6;
+                   }
+           #flower7 { font-size: 44px;
+                      top: 8px;
+                      left: 128px;
+                      animation-name: myAnimation7;
+                      animation-delay: 3s;
+                     }
+           #flower8 { font-size: 29px;
+                      top: 33px;
+                      left: 77px;
+                      animation-name: myAnimation8;
+                      animation-delay: 1s;
+                     } 
+           #flower9 { font-size: 24px;
+                      top: 62px;
+                      left: 48px;
+                      animation-name: myAnimation9;
+                     } 
+          
+/*---------------------------------------*/
+
+       @keyframes myAnimation14
+               { 0% { top: 445px;
+                    }
+                 100% { top: -1px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation15
+               { 0% { top: 150px;
+                    }
+                 100% { top: 8px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation16
+               { 0% { top: 100px;
+                    }
+                 100% { top: 33px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation17
+               { 0% { top: 170px;
+                    }
+                 100% { top: 62px;
+                        transform: rotate(360deg);
+                      }
+                }
+          #flower14 { font-size: 50px;
+                     top: -18px;
+                     left: 1280px;
+                     animation-name: myAnimation14;
+                   }
+           #flower15 { font-size: 44px;
+                      top: 8px;
+                      left: 1028px;
+                      animation-name: myAnimation15;
+                      animation-delay: 3s;
+                     }
+           #flower16 { font-size: 29px;
+                      top: 33px;
+                      left: 1100px;
+                      animation-name: myAnimation16;
+                      animation-delay: 1s;
+                     } 
+           #flower17 { font-size: 24px;
+                      top: 62px;
+                      left: 1248px;
+                      animation-name: myAnimation17;
+                     } 
+/*---------------------------------------*/
+
+       @keyframes myAnimation18
+               { 0% { top: 520px;
+                    }
+                 100% { top: 50px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation19
+               { 0% { top: 300px;
+                    }
+                 100% { top: 80px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation20
+               { 0% { top: 400px;
+                    }
+                 100% { top: 120px;
+                        transform: rotate(360deg);
+                      }
+                } 
+         @keyframes myAnimation21
+               { 0% { top: 350px;
+                    }
+                 100% { top: 170px;
+                        transform: rotate(360deg);
+                      }
+                }
+          #flower18 { font-size: 50px;
+                     top: -18px;
+                     left: 30px;
+                     animation-name: myAnimation18;
+                   }
+           #flower19 { font-size: 44px;
+                      top: 80px;
+                      left: 58px;
+                      animation-name: myAnimation19;
+                      animation-delay: 3s;
+                     }
+           #flower20 { font-size: 29px;
+                      top: 33px;
+                      left: 10px;
+                      animation-name: myAnimation20;
+                      animation-delay: 1s;
+                     } 
+           #flower21 { font-size: 24px;
+                      top: 62px;
+                      left: 148px;
+                      animation-name: myAnimation21;
+                     } 
+
+
+/*-----------------------Slide Show-----------------------*/
+
+        #slideShow { width: 420px;
+                     margin: auto;
+                     display: flex;
+                     position: relative;
+                     top: 290px;
+                   }
+        
+/*------------------Table Contact Us----------------------*/
+        h1,
+        h2 { color: lavenderblush;
+             font-size: 50px;
+             text-decoration: underline;
+             font-family: Jokerman;
+             padding-left: 20px;
+             text-shadow: 0px 0px 50px pink;
+           }
+        td input { 
+                   width: 450px;
+                   height: 40px;
+                   padding: 10px;
+                   margin: auto;
+                   display: block;
+                 }
+        table { text-align:left;
+                padding-left: 70px;
+                padding-top: 30px;
+                color: lavenderblush;
+                font-size: 25px;
+                font-family: Jokerman; /*Matura MT Script Capitals*/  
+                text-decoration: underline;
+                text-shadow: 10px 10px 80px white;
+              }
+        #Comments { height: 80px;}
+        #PostComment { height: 50px;
+                       width: 250px;
+                       padding-bottom : 50px; /*txt center*/
+                       font-weight: bold; 
+                       font-size: 25px;
+                       font-family: Jokerman;
+                       margin-left: 230px;  /*box position*/
+                     }
+
+/*---------------------About Us---------------------------*/
+        
+        h2 { font-size: 20px;} 
+        pre { color: lavenderblush;
+              margin: 30px;
+              font-size: 25px;
+              font-family: Gill Sans MT Condensed;
+            }
+        
+/*----------------WelcomeForm Page------------------------*/
+
+        h4 { color: lavenderblush;
+             margin: 50px;
+             font-family: Elephant;
+             font-size: 30px;
+           }
+
+/*-----------------browse page----------------------------*/
+    
+
+  #browse { margin-left: -900px;
+               margin-top: 200px;
+             }    
+     .browseTxt { 
+                  width: 500px;
+                  height: 1px;
+                  padding: 13px; /*--box size[<60 const]--*/
+                  background-color: floralwhite;               
+                  border-color: floralwhite;
+                  border-radius: 20px;
+                  border-width: thin;
+                  display: block;
+                  box-shadow: 0px 0px 50px lavenderblush ;
+                }
+     .browseBtn { 
+                  border-radius: 0px !important;
+                  width: 87px;
+                  height: 20px;
+                  padding: 0px;
+                  background-color: floralwhite;               
+                  border-color: floralwhite;
+                  display: block; /*--hide, then show @ JS--*/
+                  box-shadow: 0px 0px 50px lavenderblush ;
+                  position: relative;
+                  top: -24px;
+                  left: 350px;
+                }
+        .browseBtn:hover { cursor: pointer !important;}
+        #Done { padding: 5px !important;
+                margin-left: 1536px;
+                height: 50px;
+              }
+        #Done:hover { 
+                      padding: 15px;
+                      height: 60px;
+                    }
+        #title { 
+                 position: absolute;
+                 left: 1px;
+                 top: 128px
+               }
+
+/*--------------------------------------------------------*/

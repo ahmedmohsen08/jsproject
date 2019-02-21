@@ -172,6 +172,11 @@ div {
     overflow: hidden;
 }
 
+#btn-Preview-Image{
+    height: 30px;
+    font-size: 20px;
+}
+
 img{
     width: 100%;
     height: 100%;
@@ -182,77 +187,78 @@ img{
 
 #imageView,#scraper,#imageView3,#imageView2,#imageView5,#imageView1{
     position: relative;
+    top: 25px;
+    left: 320px;
     width:500px; 
     height:500px; 
     background-color: white; 
-    margin: auto;
+    /* margin: auto; */
     overflow: hidden;
 }
 
 /*imageView4 btns*/
 #imageView #colBtn1{
     position: absolute;
-    top: 90px;
-    /*left: 223px;*/
+    top: 18%;
     left: 45%;
 }
 
 #imageView #colBtn2{
     position: absolute;
-    top: 340px;
-    left: 223px;
+    top: 68%;
+    left: 44.6%;
 }
 
 #imageView #rowBtn{
     position: absolute;
     display: block;
-    top: 230px;
-    left: 90px;
+    top: 46%;
+    left: 18%;
 }
 
 /*imageView3 btns*/
 #imageView3 #colBtn1{
     position: absolute;
-    top: 370px;
-    left:225px;
+    top: 74%;
+    left:45%;
 }
 
 #imageView3 #rowBtn1{
     position: absolute;
-    top: 228px;
-    left: 150px;
+    top: 45.6%;
+    left: 30%;
 }
 
 /*imageView2 btns*/
 #imageView2 #rowBtn1{
     position: absolute;
-    top: 228px;
-    left: 228px;
+    top: 45.6%;
+    left: 45.6%;
 }
 
 /*imageView5 btns*/
 #imageView5 #colBtn1{
     position: absolute;
-    top: 80px;
-    left:225px;
+    top: 16%;
+    left:45%;
 }
 
 #imageView5 #colBtn2{
     position: absolute;
-    top: 370px;
-    left:225px;
+    top: 74%;
+    left:45%;
 }
 
 #imageView5 #rowBtn1{
     position: absolute;
-    top: 150px;
-    left: 150px;
+    top: 30%;
+    left: 30%;
 }
 
 #imageView5 #rowBtn2{
     position: absolute;
-    top: 310px;
-    left: 320px;
+    top: 62%;
+    left: 64%;
 }
 
 /*---------------------------------------------------*/
@@ -280,7 +286,7 @@ button:not(.btn){
 }
 .multiredbar,.singleBar{
     position: absolute;
-    /*top:700px;*/
+    top:760px;
     height: 110px;
     width: 100%;
     background-color: firebrick;
@@ -304,7 +310,7 @@ button:not(.btn){
 
 .AllFilters{
     position: absolute;
-    /*top:595px;*/
+    top:650px;
     display: none;
     flex-direction: row;
     box-sizing: border-box;
@@ -330,7 +336,7 @@ cursor: pointer;
 .multiBlack{
     
      position: absolute;
-    top:700px;
+    top:760px;
     height: 110px;
     width: 100%;
     background-color: #008080 ;
@@ -392,7 +398,7 @@ color:white;
 .backgroundColorBar {
    /* display: none;*/
     position: absolute;
-    top:595px;
+    top:650px;
 background-color:azure;
     height:110px;
     width: 100%;
@@ -499,3 +505,236 @@ position: absolute;
 .filter,.rotateleft,.rotateright,.fill,.reverse,.vertical,.zoomin,.zoomout,.left,.right,.up,.down,.delete1,.swap:hover{
     cursor: pointer;
 }
+
+#btn-Convert-Html2Image,
+#btn-Preview-Image { color: lavenderblush !important;
+                     font-family: Elephant !important;
+                     font-size: 25px;
+                     text-decoration: none;
+                     margin: 15px;
+                     background-color: #222;
+}
+
+/*----------------------------------------------------*/
+#header  { background-color: rgb(255,035,104);
+    color: lavenderblush;
+    font-size: 30px;
+    font-family: jokerman;
+    height: 90px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+#AboutUs:hover,
+#Home:hover,
+#Contacts:hover { box-shadow: 0px 0px 200px white;
+           font-size: 45px;
+           border-radius: 17px;
+           padding: 6px; 
+           cursor: pointer; 
+         }
+
+         #JANlogo { width: 230px;
+            height: 120px;
+            position: absolute;
+            left: 5px;
+            top: -8px;
+            border: none !important; 
+          }
+ h6 { font-family: Elephant;
+      color: lavenderblush;
+      position: absolute;
+    }
+ #PhotoEditor { position: absolute;
+    top: 30px;
+    left: 250px;
+    font-size: 35px;   
+    color: lavenderblush;
+    font-family: Elephant;   
+    }
+ #flower1 { font-size: 110px;
+            top: -25px;
+            left: 230px;
+          }
+ #flower2 { font-size: 80px;
+            top: 11px;
+            left: 282px;
+          }
+ #flower3 { font-size: 80px;
+            top: 81px;
+            left: -15px;
+          }
+ #flower4 { font-size: 30px;
+            top: 28px;
+            left: 330px;
+          }
+ #flower5 { font-size: 30px;
+            top: 140px;
+            left: -6px;
+          }
+
+ 
+/*------------------animation main page-------------------*/
+.animation { 
+    animation-iteration-count: 500;
+    animation-duration: 5s;
+    animation-direction: reverse;  
+  }
+
+@keyframes myAnimation10
+{ 0% { top: 245px;
+    }
+ 100% { top: -18px;
+        transform: rotate(360deg);
+      }
+} 
+@keyframes myAnimation11
+{ 0% { top: 270px;
+    }
+ 100% { top: 8px;
+        transform: rotate(360deg);
+      }
+} 
+@keyframes myAnimation12
+{ 0% { top: 300px;
+    }
+ 100% { top: 33px;
+        transform: rotate(360deg);
+      }
+} 
+@keyframes myAnimation13
+{ 0% { top: 500px;
+    }
+ 100% { top: 62px;
+        transform: rotate(360deg);
+      }
+}
+#flower10 { font-size: 50px;
+     top: -18px;
+     left: 1500px;
+     animation-name: myAnimation10;
+   }
+#flower11 { font-size: 44px;
+      top: 8px;
+      left: 1428px;
+      animation-name: myAnimation11;
+      animation-delay: 3s;
+     }
+#flower12 { font-size: 29px;
+      top: 33px;
+      left: 1347px;
+      animation-name: myAnimation12;
+      animation-delay: 1s;
+     } 
+#flower13 { font-size: 24px;
+      top: 62px;
+      left: 1548px;
+      animation-name: myAnimation13;
+     } 
+
+/*---------------------------------------*/
+
+@keyframes myAnimation6
+{ 0% { top: 245px;
+    }
+ 100% { top: -18px;
+        transform: rotate(360deg);
+      }
+} 
+@keyframes myAnimation7
+{ 0% { top: 270px;
+    }
+ 100% { top: 8px;
+        transform: rotate(360deg);
+      }
+} 
+@keyframes myAnimation8
+{ 0% { top: 300px;
+    }
+ 100% { top: 33px;
+        transform: rotate(360deg);
+      }
+} 
+@keyframes myAnimation9
+{ 0% { top: 500px;
+    }
+ 100% { top: 62px;
+        transform: rotate(360deg);
+      }
+}
+#flower6 { font-size: 50px;
+     top: -18px;
+     left: 180px;
+     animation-name: myAnimation6;
+   }
+#flower7 { font-size: 44px;
+      top: 8px;
+      left: 128px;
+      animation-name: myAnimation7;
+      animation-delay: 3s;
+     }
+#flower8 { font-size: 29px;
+      top: 33px;
+      left: 77px;
+      animation-name: myAnimation8;
+      animation-delay: 1s;
+     } 
+#flower9 { font-size: 24px;
+      top: 62px;
+      left: 48px;
+      animation-name: myAnimation9;
+     } 
+
+/*---------------------------------------*/
+
+@keyframes myAnimation14
+{ 0% { top: 445px;
+    }
+ 100% { top: -1px;
+        transform: rotate(360deg);
+      }
+} 
+@keyframes myAnimation15
+{ 0% { top: 150px;
+    }
+ 100% { top: 8px;
+        transform: rotate(360deg);
+      }
+} 
+@keyframes myAnimation16
+{ 0% { top: 100px;
+    }
+ 100% { top: 33px;
+        transform: rotate(360deg);
+      }
+} 
+@keyframes myAnimation17
+{ 0% { top: 170px;
+    }
+ 100% { top: 62px;
+        transform: rotate(360deg);
+      }
+}
+#flower14 { font-size: 50px;
+     top: -18px;
+     left: 1280px;
+     animation-name: myAnimation14;
+   }
+#flower15 { font-size: 44px;
+      top: 8px;
+      left: 1028px;
+      animation-name: myAnimation15;
+      animation-delay: 3s;
+     }
+#flower16 { font-size: 29px;
+      top: 33px;
+      left: 1100px;
+      animation-name: myAnimation16;
+      animation-delay: 1s;
+     } 
+#flower17 { font-size: 24px;
+      top: 62px;
+      left: 1248px;
+      animation-name: myAnimation17;
+     } 
+/*---------------------------------------*/
